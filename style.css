@@ -12,3 +12,15 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+.Rchunk {
+  background-color: #f2dede !important;
+  font-weight: bolder;
+  color: red !important;
+}
+
+.Rout {
+  background-color: #d9edf7 !important;
+  font-weight: bolder;
+  color: blue !important;
+}
