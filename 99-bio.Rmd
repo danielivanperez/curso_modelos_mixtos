@@ -1,5 +1,13 @@
 # Sobre el Autor del Curso {-}
 
+```{=html}
+<p align="center">
+  <img width="280" height="200" src="images/mundo_mejor.jpg">
+</p>
+<p align="center">
+</p>
+```
+
 Daniel Pérez Zapata se doctoró (PhD) en la Universidad de Birmingham[link](https://www.birmingham.ac.uk/index.aspx), Reino Unido, bajo la supervisión del Prof. Ian Apperly[link](https://www.birmingham.ac.uk/staff/profiles/psychology/apperly-ian.aspx), experto en Teoría de la Mente o "Mindreading". 
 
 Daniel estudió Psicología en la Universidad de Tarapacá[link](https://www.uta.cl) (Chile) y también se graduó como Magister en Ciencias Sociales Aplicadas (2012) en la misma casa de estudio. Luego, realizó un Máster en Psicología Cognitiva en la Universidad de Queensland[link](https://www.uq.edu.au/) (Australia), bajo la guía de las profesoras Virginia Slaughter[link](https://researchers.uq.edu.au/researcher/499) y Julie Henry[link](https://researchers.uq.edu.au/researcher/2589). Para saber más sobre su trabajo académico visita este [link](https://www.danielperezzapata.com){target="_blank"}. 
