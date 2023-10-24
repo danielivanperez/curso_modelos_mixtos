@@ -2,7 +2,7 @@
 
 ```{=html}
 <p align="center">
-  <img width="280" height="200" src="images/mundo_mejor.jpg">
+  <img width="280" height="200" src="images/daniel.jpg">
 </p>
 <p align="center">
 </p>
