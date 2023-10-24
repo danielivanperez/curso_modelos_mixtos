@@ -1,4 +1,4 @@
-# Introducción 
+#Introducción 
 
 Bienvenidas y bienvenidos a *Introducción a los Modelos Mixtos en Psicología*. Este curso tiene como principal objetivo de aprendizaje que el lector adquiera y desarrolle habilidades básicas de programación usando el lenguaje R para realizar análisis de datos en psicología utilizando *Modelos Mixtos Lineales*. Para esto, asumo que el lector tiene cierta experiencia y conocimiento basico para usar RStudio. Si no es asi, hay multiples recursos online que le pueden guiar en los primeros pasos con R (breve curso introductorio a R). 
 
