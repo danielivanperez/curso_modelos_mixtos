@@ -12,7 +12,6 @@ creación-de-variables-a-partir-de-otras-columnas
 graficando-datos-y-otras-funcionalidades
 resumen-y-ejercicios
 ejercicios
-regresion-lineal
 chapter_3
 definiendo-r
 instalando-r
@@ -26,7 +25,6 @@ presentando-r-notebook
 insertando-y-ejecutando-porciones-de-código
 resumen-y-ejercicios-1
 ejercicios-1
-modelos-mixtos
 chapter_4
 r-como-una-simple-calculadora
 orden-de-operaciones-matemáticas-en-r
@@ -48,4 +46,6 @@ vectores-lógicos
 resumen-y-ejercicios-2
 ejercicios-2
 instalando-librerías-en-r
+regresion-lineal
+modelos-mixtos
 glosario
