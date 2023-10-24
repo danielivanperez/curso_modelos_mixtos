@@ -1,4 +1,3 @@
-palabras-iniciales
 introducción
 por-qué-programar-en-r
 estructura-del-presente-curso
