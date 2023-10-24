@@ -1,5 +1,5 @@
 --- 
-title: "Curso de Modelos Mixtos Linales en Psicologia"
+title: "Introducción a los Modelos Mixtos en Psicologia"
 author: "Daniel Perez Zapata, PhD"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
