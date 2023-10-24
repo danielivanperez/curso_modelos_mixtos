@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Introducción a los Modelos Mixtos en Psicologia</title>
-  <meta name="description" content="Page not found | Introducción a los Modelos Mixtos en Psicologia" />
+  <title>Anexo 2: Respuesta a Ejercicios | Introducción a los Modelos Mixtos en Psicologia</title>
+  <meta name="description" content="Anexo 2: Respuesta a Ejercicios | Introducción a los Modelos Mixtos en Psicologia" />
   <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta property="og:title" content="Anexo 2: Respuesta a Ejercicios | Introducción a los Modelos Mixtos en Psicologia" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta name="twitter:title" content="Anexo 2: Respuesta a Ejercicios | Introducción a los Modelos Mixtos en Psicologia" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="anexo_1.html"/>
+<link rel="next" href="sobre-el-autor-del-curso.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -243,19 +243,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="anexo_2" class="section level1 unnumbered hasAnchor">
+<h1>Anexo 2: Respuesta a Ejercicios<a href="anexo_2.html#anexo_2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="respuestas-de-ejercicios-de-la-subsección-2.7.1" class="section level2 unnumbered hasAnchor">
+<h2>Respuestas de Ejercicios de la Subsección 2.7.1<a href="anexo_2.html#respuestas-de-ejercicios-de-la-subsección-2.7.1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ejercicio 1</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="anexo_2.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dataset, <span class="dv">20</span>)</span></code></pre></div>
+<p>Ejercicio 2</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="anexo_2.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dataset, <span class="dv">15</span>)</span></code></pre></div>
+<p>Ejercicio 3</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="anexo_2.html#cb158-1" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>Nivel</span></code></pre></div>
+<p>Ejercicio 4</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="anexo_2.html#cb159-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="dv">50</span><span class="sc">:</span><span class="dv">95</span>, <span class="fu">c</span>(<span class="st">&quot;edad&quot;</span>, <span class="st">&quot;calificacion_5&quot;</span>)]</span></code></pre></div>
+<p>Ejercicio 5</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="anexo_2.html#cb160-1" aria-hidden="true" tabindex="-1"></a>ejercicio_4 <span class="ot">&lt;-</span> dataset[<span class="dv">50</span><span class="sc">:</span><span class="dv">95</span>, <span class="fu">c</span>(<span class="st">&quot;edad&quot;</span>, <span class="st">&quot;calificacion_5&quot;</span>)]</span></code></pre></div>
+<p>Ejercicio 6</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="anexo_2.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ejercicio_4)</span></code></pre></div>
+<p>Ejercicio 7</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="anexo_2.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(dataset, Nivel <span class="sc">==</span> <span class="dv">301</span> )</span></code></pre></div>
+<p>Ejercicio 8</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="anexo_2.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(dataset, Nivel <span class="sc">==</span> <span class="dv">101</span> <span class="sc">|</span> Nivel <span class="sc">==</span> <span class="dv">201</span> <span class="sc">|</span> Nivel <span class="sc">==</span> <span class="dv">202</span>)</span></code></pre></div>
+<p>Ejercicio 9</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="anexo_2.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dataset<span class="sc">$</span>promedio, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Ejercicio 10</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="anexo_2.html#cb165-1" aria-hidden="true" tabindex="-1"></a>promedio_preg_10 <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(dataset[,<span class="dv">5</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Ejercicio 11</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="anexo_2.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(dataset<span class="sc">$</span>Nivel)</span></code></pre></div>
+<p>Ejercicio 12</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="anexo_2.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(dataset<span class="sc">$</span>Nivel))</span></code></pre></div>
+<p>Ejercicio 13</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="anexo_2.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dataset<span class="sc">$</span>emociones_positivas, dataset<span class="sc">$</span>emociones_negativas)</span></code></pre></div>
+<p>Ejercicio 14</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="anexo_2.html#cb169-1" aria-hidden="true" tabindex="-1"></a>modelo_lineal <span class="ot">&lt;-</span> <span class="fu">lm</span>(dataset<span class="sc">$</span>emociones_negativas <span class="sc">~</span> dataset<span class="sc">$</span>emociones_positivas, <span class="at">data =</span> dataset)</span>
+<span id="cb169-2"><a href="anexo_2.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dataset<span class="sc">$</span>emociones_negativas, dataset<span class="sc">$</span>emociones_positivas)</span>
+<span id="cb169-3"><a href="anexo_2.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(modelo_lineal, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p>Ejercicio 15</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="anexo_2.html#cb170-1" aria-hidden="true" tabindex="-1"></a>modelo_lineal </span></code></pre></div>
+</div>
+<div id="anexo_3_7_1" class="section level2 unnumbered hasAnchor">
+<h2>Respuestas de Ejercicios de la Subsección 3.7.1<a href="anexo_2.html#anexo_3_7_1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ejercicio 1</p>
+<p><em>File</em> →<em>New file</em> → <em>R Notebook</em> → <em>save current document</em> → <em>ejercicio_1</em></p>
+<p>Ejercicio 2</p>
+<p>Lo que debería pasar es que los colores del código han cambiado de color a lo largo del R Notebook. Esto significa que R no esta interpretando correctamente donde termina dicho trozo de código. Debido a esto, no es una buena idea agregar o eliminar guiones en esta parte del script porque va a estropear todo el formato del código escrito abajo. A todo esto, no olviden agregar nuevamente el guión al inicio del script (deben ser tres guiones).</p>
+<p>Ejercicio 3.</p>
+<p>Simplemente remuevan el texto que aparece en la línea 14 a 18. No debería ocurrir ningún error para correr el código en este R Notebook.</p>
+<p>Ejercicio 4.</p>
+<p>Al ejecutar el trozo de código deberían ver un gráfico. Recuerden que esto se hace presionando el botón con la flecha verde <code>Run Current Chunk</code>. Alternativamente, podemos usar el siguiente atajo con el teclado en Windows <code>Ctrl + Shift * Enter</code> o el siguiente <code>Cmd + Shift + Enter</code> si estamos usando macOS.</p>
+<p>Ejercicio 5.</p>
+<p>Si estas usando macOS, debes usar <code>Cmd + Option + I</code>; y si estas usando Windows, utiliza <code>Ctrl + Alt + I</code>. Asimismo, también puedes usar la opción <code>Insert a new code chunk</code> para agregar pedazos de código en el R Markdown.</p>
+<p>Ejercicio 6.</p>
+<p>[1] 64.4</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="anexo_1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sobre-el-autor-del-curso.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -286,7 +334,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/danielivanperez/curso_modelos_mixtos/edit/main/%s",
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/edit/main/97-anexo_1.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -294,7 +342,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/danielivanperez/curso_modelos_mixtos/blob/main/%s",
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/blob/main/97-anexo_1.Rmd",
 "text": null
 },
 "download": null,

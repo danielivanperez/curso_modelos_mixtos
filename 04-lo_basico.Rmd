@@ -1,0 +1,387 @@
+# Comandos Básicos en R {#chapter_4}
+
+En este capítulo revisaremos cómo interactuar con R de forma muy básica y sencilla. Empezaremos usando R como si fuera una calculadora común y corriente, lo cual nos ayudará a obtener nuestros primeros resultados de manera exitosa (aumentando así nuestra confianza en nuestras propias capacidades como futuros analistas de datos 👊). Posteriormente, echaremos un vistazo a cómo construir y asignar valores a variables, una de las funcionalidades más útiles de R. Luego, pasaremos a describir algunos de los tipos de datos con los cuales trabaja R: números, texto y valores lógicos, ilustrando para cada uno de ellos la posibilidad de construir vectores. Al final del capítulo terminaremos con algunos ejercicios como ya es costumbre. 
+
+Se asume que a esta altura que la y el lector ya ha instalado R y RStudio en su computador. En cuanto a la forma de escribir código, el usuario puede utilizar la consola de R, el panel de script o R Notebooks (ver [Capítulo 3](#capiulo3_4) para más detalles), siendo esta última la forma recomendada para proceder, pero no hay problema con usar las otras opciones.  
+
+## R como una Simple Calculadora^[ Para estructurar los contenidos de este capítulo, me he basado en el libro *Learning Statistics with R* escrito por Danielle Navarro.]
+
+Una de las primeras cosas que podemos hacer para comenzar a familiarizarnos con R es usarla como si fuera una simple calculadora. De esta manera, escribiremos los primeros comandos o instrucciones y obtendremos resultados conocidos a partir de nuestra experiencia con cálculos matemáticos adquiridos durante nuestra educación primaria. Nada intimidante la verdad. En la consola de R, podemos escribir `2 + 5` y luego apretar “*enter*”. Cuando escribimos `2 + 5` lo que hicimos fue escribir un **comando** y R ejecutará dicho comando. Lo que tu vas a ver en la consola de R corresponde a: 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+2 + 5
+```
+
+Ahora bien, este simple ejemplo nos servirá para explicar algunas cosas muy simples de R. El primer bloque de arriba (es decir, `2 + 5`) corresponde al comando o instrucciones que escribimos y el bloque de abajo es el *output* o salida de R, el cual nos muestra el resultado de la suma. En este bloque, aparecen dos *hashtags* o “*signos gatos*” (como le decimos en Chile), al lado `[1] `, el cual señala el número del output producido por R (y que por cierto nosotros no escribimos, sino fue producido por R) y al lado, finalmente, aparece el resultado de la sumatoria, es decir, `7`. *So far, so good!* (¡hasta ahora todo bien!).
+
+En la tabla 4.1, puedes encontrar un resumen de algunas operaciones matemáticas básicas en R. 
+
+```{=html}    
+                              <center> <h3>Tabla 4.1 </h3> </center>
+```
+              
+| Operación      | Símbolo u operador | Ejemplo  | Resultado |
+|:----------------:|:------------------:|:--------:|:---------:|
+|      Suma      |          +         |  `3 + 6` |    `9`    |
+|      Resta     |          -         |  `6 - 2` |    `4`    |
+| Multiplicación |          *         |  `5 * 8` |    `40`   |
+|    División    |          /         | `21 / 7` |    `3`    |
+|    Potencia    |          ^         |  `2 ^ 6` |    `64`   |
+
+## Orden de Operaciones Matemáticas en R
+
+Habiendo presentado brevemente los símbolos matemáticos en R, cuando nos enfrentamos a situaciones donde debemos escribir diferentes cálculos, el orden de ejecución de dichas operaciones sigue el mismo orden que aprendimos durante nuestro tiempo escolar: se realiza primero lo que está dentro del paréntesis, luego potencias, para después seguir con divisiones y multiplicaciones, para finalmente terminar con sumas y restas. Abajo encontrarán tres breves ejemplos en R que ilustran estos principios. 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+5 + 5 * 12 
+```
+En el caso de arriba, el número `5` es multiplicado con el número `12` y luego al final se le suma el número `5` para obtener el resultado de `65`. 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+(5 + 5) * 12 
+```
+En este bloque, primero se suman los dos números que están al interior del paréntesis (es decir, `5 + 5 = 10`) y luego el resultado se multiplica con `12` para obtener `120`.  
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+(2  ^ 3 ) / 2 
+```
+Al igual que el ejemplo de arriba, la operación que está dentro del paréntesis es lo que se ejecuta en primer lugar (es decir, la potencia de 2 elevada al cubo  = `2 × 2 × 2 = 8`), cuyo resultado después será dividido por `2`, lo que equivale a `4`. 
+
+## Variables en R
+
+Una de las principales ventajas de usar R es que podemos crear variables con el fin de almacenar información en ellas. Una manera bastante simple de entender el rol de las variables en R es que nosotros asignamos una etiqueta o un nombre a un conjunto de información determinada. La gracia de R en este caso es bastante grande: para realizar análisis de datos se necesita poder usar variables y R nos permite hacerlo de manera bastante sencilla. 
+
+### Construyendo Variables en R {#chapter_4.3.1}
+
+Para crear una variable, debemos utilizar el operador de asignación `<-`. Veamos un ejemplo. 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_edad <- 35
+```
+Arriba he creado una variable que tiene por nombre o etiqueta `mi_edad` (lado izquierdo del comando) y he asignado un valor numérico a esta variable (`35`, el cual está en el lado derecho) a través del operador de asignación `<-`. Ahora, si escribo y ejecuto la variable `mi_edad`, veamos lo que pasa.
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_edad
+```
+R ha impreso el valor `35`, el cual corresponde a la operación realizada más arriba. Ahora imaginemos que deseo realizar algunas operaciones matemáticas con la variable `mi_edad`: 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_edad * 5
+```
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_edad / 5
+```
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_edad ^  5
+```
+En estos tres ejemplos, podemos ver la versatilidad y sencillez de R para ejecutar operaciones matemáticas sobre una variable arbitraria. ¡Imaginen las posibilidades que nos ofrece R para interactuar de diferentes maneras con set de datos!
+
+```{=html}
+<p align="center">
+  <img width="280" height="200" src="images/monkey.gif">
+</p>
+<p align="center">
+Figura 7. Usuario inicial de R imaginando las posibilidades.
+</p>
+```
+
+Incluso podemos crear nuevas variables y aplicar operaciones matemáticas entre ellas. Veamos los siguientes ejemplos. 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_sueldo_al_mes <- 2000
+```
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_sueldo_al_mes 
+```
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_sueldo_al_mes * mi_edad
+```
+```{r class.source="bg-danger", class.output="bg-warning"}
+mi_sueldo_al_mes + mi_edad / 10
+```
+
+
+Con estos sencillos ejemplos, podemos comenzar a apreciar cómo en R creamos variables (u objetos), asignándole valores numéricos con los cuales jugar y combinar para empezar a realizar análisis de datos. 
+
+### Reglas para Nombrar Variables
+
+R tiene posee algunas reglas generales para etiquetar o nombrar variables. A continuación, las listaré con el fin de comentarlas solo un poco porque son bastante auto explicativas. 
+
+* Los nombres de variables usan caracteres en minúsculas y mayúsculas (R reconoce estas diferencias al momento de escribir sus variables). Se pueden incluir números en el nombre de variables, también puntos `.` o guion bajo `_` . Un nombre de variable valido es `item_empatia_1` o también `ítem.empatía.2`. El segundo ejemplo incorpora tildes, los cuales son asignados correctamente en R, aunque debemos tener cuidado que al usar tildes, debemos utilizarlas siempre para nuestro trabajo posterior. Sino, R nos dará un error. 
+
+* Los nombres de las variables no deben incluir espacios. `mi edad` no es un nombre válido; en cambio, `mi.edad` o `mi_edad` lo son.  
+
+* Los nombres deben empezar con una letra o con punto, pero no pueden empezar con guión bajo o con número. Por lo tanto, `_mi_edad`, `35_mi_edad`, son ejemplos inválidos en R. 
+
+* No podemos nombrar a nuestras variables con los nombres reservados en R. Los nombres reservados de R son nombres especiales que R utiliza para realizar ciertas operaciones y que debe restringir para que no haya problemas cuando se les requiera. Los nombres reservados son: `if`, `else`, `repeat`, `while`, `function`, `for`, `in`, `next`, `break`, `TRUE`, `FALSE`, `NULL`, `Inf`, `NaN`, `NA`, `NA_integer_`, `NA_real_`, `NA_complex_` y `NA_character_`. Les recomendaría que no inviertan su tiempo en memorizarlas (de hecho, yo casi no me las sé y tuve que mirar un documento para escribirlas aquí). 
+
+### Convenciones Informales para Nombrar Variables
+
+A continuación, mencionaré algunas convenciones o recomendaciones informales que se tienden a utilizar en los nombres de variables en R. Si bien, obviamente, no es obligatoria seguirlas, es una buena práctica cumplir con ellas, sobretodo, si luego tu código será compartido con otras personas dentro de un flujo de trabajo. 
+
+* Usar nombres informativos. Por ejemplo, buenos ejemplos podrían ser `edad` o `educacion` y malos ejemplos podrían ser `variable_1` o `nueva_variable` debido a que sus nombres no nos dicen nada acerca de qué se tratan dichas variables. 
+
+* Usar nombres breves o cortos. Escribir nombres largos de variables es una “lata” y, probablemente, una pérdida de tiempo cuando estemos concentrados en realizar nuestros análisis de datos. Un ejemplo de un nombre de variable muy largo sería `edad_de_los_participantes`. Sin embargo, es difícil mantener un buen equilibrio en construir nombres informativos y significativos, sin que sean demasiado largos. Cuando llegue el momento, uno deberá tomar ciertas decisiones al respecto. 
+
+* Ser consistente en la manera de nombrar variables. Como vimos arriba, podemos nombrar las variables con guión bajo o con puntos, cualquiera de las dos maneras está bien, pero lo más relevante es usar solo uno de ellos cuando se estén asignados el nombre a las variables en nuestro estudio. Otras personas prefieren usar mayúsculas evitando el uso de otros símbolos como por ejemplo `EdadNiños`. Por lo tanto, el mensaje central es ser consistente.
+
+## Errores de Escritura o *typos* en R
+
+Para interactuar con R, nuestras instrucciones y nombres de variables deben ser claras y precisas. De este modo, R podrá realizar exactamente lo que nosotros le pidamos. Sin embargo, si no somos lo suficientemente claros y precisos, R no hará lo que le pidamos y nos dará algún mensaje de error de algún tipo. Y aceptémoslo, más temprano que tarde cometeremos un error de escritura en R, el cual será el inicio de muchos errores en el camino que emprendamos en el análisis de datos a través del uso de R. Este es solo un recordatorio amigable que no debemos sentirnos mal cuando cometamos un error en R. Esto también es una señal de que estamos avanzando y aprendiendo. 
+
+## Funciones en R 
+
+Uno de los elementos más útiles en R al realizar análisis de datos es la utilización de funciones. En esta subsección, revisaremos algunos elementos básicos de las funciones y más adelante veremos cómo podemos empezar a definir funciones. En el inicio del capítulo 3 vimos un ejemplo de función aplicada a una variable (es decir, `sqrt(x)`).  En ese ejemplo, usamos una de las funciones bases de R para obtener la raíz cuadrada de 16 que estaba almacenada en `x`. Obviamente, podemos obtener el mismo resultado aplicando dicha función a la siguiente expresión numérica (abajo muestro nuevamente la aplicación de la función a una variable, como recordatorio):
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+sqrt(16)
+```
+```{r class.source="bg-danger", class.output="bg-warning"}
+x <- 16
+sqrt(x)
+```
+
+En vez de estar escribiendo una fórmula matemática en R para la raíz cuadrada, podemos usar esta función para obtener nuestro resultado a un valor determinado (ya sea un número o una variable como en los ejemplos de arriba). Ahora, aprovecharemos de explicar algunos términos técnicos para este caso. Usualmente, cuando aplicamos una función en R, decimos que *llamaremos* (*calling*) dicha función y todos aquellos valores que escribamos dentro de la función (es decir, dentro del paréntesis), son referidos como *argumentos* (*arguments*). Y la respuesta es sí, podemos escribir más de un argumento en una función. 
+
+
+### Argumentos, sus Nombres y Valores por Defecto en las Funciones
+
+Arriba ya adelantamos que al interior de las funciones se pueden escribir argumentos y voy a recalcar el plural aquí. Dentro del paréntesis de las funciones, se pueden distinguir el *nombre de los argumentos* y sus *valores por defecto*. Para explicar estos conceptos, introduciremos una nueva función `round()`, la cual tiene por objetivo redondear un valor hacia el número entero más cercano. Veamos un ejemplo con el famoso número pi: 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+round(3.141592)
+```
+
+En este ejemplo, podemos claramente darnos cuenta que el número aproximado corresponde al 3 (y no al 4 que está mucho más lejos en la recta numérica). Ahora supongamos que queremos redondear nuestro número a 2 dígitos. Para esto, podemos escribir: 
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+round(3.141592, 2)
+```
+En esta expresión, tenemos 2 argumentos al interior de la función `round`: el primer argumento que corresponde al valor a ser redondeado (es decir, 3.141592) y el segundo argumento es el número de decimales a aproximar (es decir, 2) y, ambos, están separados por una coma. Si notaron sagazmente, cuando escribimos `round(3.141592)` en el primer caso, no hubo un segundo argumento en la función, por lo que R asumió el argumento por defecto. Al no estar escrito, asumió que estábamos buscando redondear al valor entero más cercano sin decimales, así que allí fue completado con el número 0 el cual es el *valor por defecto* para esta función en R. Sin embargo, en el segundo caso, nosotros escribimos explícitamente un argumento (es decir, `2`) en la segunda posición de la función. De este modo, nosotros utilizamos la segunda posición de los argumentos de la función para definir el número de decimales a aproximar. Sin embargo, si queremos estar seguros de pasar el valor correcto al argumento de la función `round`, podemos escribir el o los nombres de los argumentos (es decir, `x` y `digits`). Esto quedará mucho más claro en el siguiente ejemplo:
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+round(x = 3.141592, digits = 2)
+```
+De esta manera, no cabe ningún tipo de ambigüedades para los valores utilizados ya que han sido asignados bajo el nombre de los argumentos en conjunto con el símbolo `=`. Al mismo tiempo, al usar esta forma de pasar los argumentos al interior de la función, da lo mismo la posición de los nombres de los argumentos: obtendremos el mismo resultado, como lo muestra el siguiente ejemplo:
+
+```{r class.source="bg-danger", class.output="bg-warning"}
+round(digits = 2, x = 3.141592)
+```
+
+Pero vale la pena recalcar que si no utilizamos los nombres de los argumentos al interior de la función, debemos respetar en qué posición son asignados los valores como lo vimos en los ejemplos de más arriba (en el caso de la función `round`, primero se debe poner el valor a redonderar, luego coma y el valor de los decimales a redondear). 
+
+## Almacenando Números (o Vectores) en Variables 
+
+Una de las funcionalidades más importantes que nos entrega R es la posibilidad de almacenar valores numéricos a partir de la función `c` que es una abreviación para la función `combine` o combinar. Esto ya fue brevemente mencionado en el capítulo 2 cuando estábamos seleccionando columnas en un *data frame*. A continuación, mostramos un ejemplo donde almacenaremos un conjunto de valores numéricos en la variable `ejemplo_vector` y luego lo ejecutaremos: 
+
+```{r}
+ejemplo_vector <- c(20, 10, 8, 34, 64, 100,78, 3, 52, 91)
+ejemplo_vector
+```
+
+El vector `c(20, 10, 8, 34, 64, 100,78, 3, 52, 91)` almacenado en la variable `ejemplo_vector` posee 10 elementos. Al mismo tiempo, es muy útil saber cómo obtener información de los elementos de un vector. Si quisiéramos saber el quinto valor de la variable `ejemplo_vector`, el cual es `64`, vamos a escribir [5] y aplicarla a la variable. Por ejemplo: 
+
+```{r}
+ejemplo_vector[5]
+```
+
+### Modificando los Valores de un Vector
+
+Otra función sumamente útil de R es poder alterar o modificar los valores dentro de un vector particular. Para realizar esto, simplemente debemos utilizar la misma idea expresada en la línea de código de arriba y asignar un nuevo valor numérico al elemento a modificar. Por ejemplo, vamos a modificar el valor `64` por `9999`, y luego imprimiremos la variable con la modificación del valor del vector abajo:  
+
+```{r}
+ejemplo_vector[5] <- 9999
+ejemplo_vector
+```
+
+## Almacenando Texto en Variables
+
+No solo podemos almacenar información numérica en variables, sino también podemos almacenar texto, caracteres (o también conocidos como *strings*) en las variables. Véase el ejemplo del código debajo y obsérvese que el texto está entre comillas (aunque éstas no forman parte de la variable, pero son necesarias para ingresar texto); luego, hemos ingresado la variable al final para que nos de su resultado:
+
+```{r}
+saludo <- 'hola'
+saludo
+```
+
+Es importante mencionar para las variables de texto o caracteres que R las almacena como un elemento singular o particular (a diferencia de los valores numéricos en un vector). Esto se puede apreciar en el siguiente código: 
+
+```{r}
+saludo[1]
+```
+
+De este modo, nos podemos percatar que la variable `saludo` no es un vector con 4 letras, sino que contiene un solo elemento. No obstante estas aclaraciones, esto no impide que podamos almacenar en un mismo vector más entradas de texto en ella. A este tipo de vector se le llama vector de caracteres. Esto se hace con la función `c` como lo muestra el siguiente ejemplo:
+
+```{r}
+saludo <- c("hola","buen dia","buenas tardes","buenas noches")
+saludo
+```
+
+Asimismo, para acceder al, por ejemplo, segundo valor de la variable `saludo` podemos usar la siguiente instrucción: 
+
+```{r}
+saludo[2]
+```
+
+De forma similar a la descrita más arriba, podemos modificar entradas específicas en el vector de texto `saludo`. Veamos el siguiente ejemplo: 
+
+```{r}
+saludo[4] <- 'hasta la vista baby'
+saludo
+```
+Solamente para terminar con esta subsección, me gustaría indicar que a las variables con caracteres no se le pueden aplicar las clásicas funciones cuantitativas ya revisadas como `sqrt()`, o `round()`. Para contar el número de caracteres que contiene una palabra usamos la función `nchar()`.  Veamos el siguiente ejemplo: 
+
+```{r}
+nchar('murcielago')
+```
+
+Por último, apliquemos esta función a la variable arriba creada: 
+
+```{r}
+nchar(saludo)
+```
+Ténganse en mente que la variable `saludo` arrojo la siguiente salida: `[1] 4 8 13 19`. Estos valores se corresponden con las palabras “hola” = 4; “buen día” = 8 (aqui esta contando el espacio como caracter), etc. 
+
+## Almacenando Valores Lógicos en Variables
+
+R también trabaja sobre *valores lógicos*. Básicamente, un valor lógico es una aserción sobre si algo es verdadero o falso. La implementación de dichos valores en R son TRUE y FALSE respectivamente. 
+
+### Evaluando Verdades Matemáticas 
+
+Como comienza refiriéndose Danielle Navarro en su libro *Learning Statistics with R*, en el ya clásico libro de George Orwell 1984, uno de los eslóganes utilizados por el partido totalitario era “dos más dos es igual cinco”. La idea contempla que la dominación política de la libertad humana se vuelve completa cuando es posible subvertir incluso las más básicas verdades, en este caso, verdades matemáticas formales. Introducimos esta analogía solamente para examinar cómo R utiliza los operadores lógicos booleanos descritos arriba y comprobar que R no se somete a los dictámenes del partido totalitario. Por ejemplo:
+
+```{r}
+2 + 2
+```
+
+Ahora podemos respirar tranquilos, al menos 2 + 2 es 4. Pero ahora supongamos que queremos R evalúe si una proposición es verdadera o no. 
+
+```{r}
+2 + 2 == 4
+```
+Arriba hemos utilizado el operador de igualdad `==`, para que R nos diga si una proposición es verdadera o falsa (en este caso verdadera). Veamos qué piensa del slogan del partido totalitario. 
+
+```{r}
+2 + 2 == 5
+```
+Aún hay esperanzas en el reino de R señoras y señores. 2 + 2 == 5 es una proposición falsa!
+
+### Más Operadores Lógicos 
+
+Habiendo introducido los operadores lógicos más básicos arriba, aprovecharemos la oportunidad para mostrar que podemos combinarlos y resumiremos en la tabla 4.2 más operadores lógicos. Veamos un ejemplo de cómo combinar operadores lógicos:  
+
+```{r}
+10*2 + (4 * 4) == 6 * 6
+```
+En la expresión numérica de arriba, hemos combinado valores y aplicado una función lógica con un resultado de `TRUE`. De este modo, es posible utilizar R para la evaluación de expresiones lógicas. Pero su potencial va más allá de determinar si una proposición dada es verdadera o falsa, sino que a través de la utilización de estas expresiones podemos filtrar bases de datos como lo vimos en el capítulo 2 al usar la función `subset()`.
+
+```{=html}    
+                              <center> <h3>Tabla 4.2 </h3> </center>
+```
+
+| Número |      Operación      | Operador | Ejemplo | Respuesta|
+|:------:|:-------------------:|:--------:|:-------:|:-------:|
+|    1   |      Menor que      |     <    |  1 < 5  | Verdadero|
+|    2   | Menor que o igual a |    <=    |  3 <= 3 | Verdadero|
+|    3   |      Mayor que      |     >    |  5 > 7  | Falso|
+|    4   | Mayor que o igual a |    >=    |  4 >= 2 | Verdadero|
+|    5   |       Igual a       |    ==    | 10 == 2 | Falso|
+|    6   |      No igual a     |    !=    | 10 != 2 | Verdadero|
+
+Sigamos examinando unos pocos ejemplos más para ver cómo R utiliza estos operadores lógicos. Se recomienda que las y los lectores sigan probando y jugando con el uso de los diferentes operador para comprender de mejor manera su funcionamiento. 
+
+```{r}
+20 < 30
+```
+
+```{r}
+30 <= 20
+```
+
+```{r}
+1000.010 > 1000.090
+```
+
+```{r}
+1000 > 1000
+```
+
+```{r}
+42 >= 2 * 21
+```
+
+Finalizaremos el resumen de las operaciones lógicas con la tabla 4.3, en donde aparecen los operadores de negación, disyunción y conjunción.  
+
+```{=html}    
+                              <center> <h3>Tabla 4.3 </h3> </center>
+```
+
+| Número |  Operación | Operador |        Ejemplo       | Respuesta |
+|:------:|:----------:|:--------:|:--------------------:|:---------:|
+|    1   |  Negación  |     !    |       !(8 == 8)      |   Falso   |
+|    2   | Disyunción |     \|    | (1 == 1)  \| (2 == 3) | Verdadero |
+|    3   | Conjunción |     &    |  (1 == 1) & (2 == 3) |   Falso   |
+
+
+Abajo aparecen algunos ejemplos para ilustrar las operaciones de la tabla 4.3 y revisar los resultados de dichos procedimientos. Nótese que para la disyunción basta con que una de las expresiones sea verdadera para que el resultado final sea verdadero; en cambio, para la conjunción ambas expresiones deben ser verdaderas. Por último, para ejemplificar la negación, hemos escrito el símbolo al lado de `FALSE`, una de las expresiones reservadas de R.  
+
+```{r}
+(1 + 1 == 2) | (3 + 3 == 10)
+```
+
+```{r}
+(1 + 1 == 2) | (3 + 3 == 10)
+```
+
+```{r}
+!FALSE
+```
+
+### Almacenando Datos Lógicos en Variables (Al fin!)
+
+Ahora que ya hemos revisado algunos elementos básicos de las funciones lógicas en R, al fin podemos decir que, al igual que en el caso de los datos numéricos y de texto, es posible almacenar en variables datos lógicos. Veamos el siguiente ejemplo: 
+
+```{r}
+mi_primera_variable_logica <- 2 + 2 ==5
+mi_primera_variable_logica
+```
+
+Sin embargo, también podemos ingresar el valor lógico directamente:
+
+```{r}
+mi_primera_variable_logica <- FALSE
+mi_primera_variable_logica
+```
+
+Incluso R nos permite asignar solamente la primera letra mayúscula como valor lógico, es decir, T o F (aunque no reconoce para esta operación letras minúsculas):
+
+```{r}
+mi_primera_variable_logica <- F
+mi_primera_variable_logica
+```
+
+### Vectores Lógicos
+
+Al igual que los casos anteriores de vectores, podemos concatenar o combinar valores lógicos en un vector, veamos un ejemplo asignando un conjunto de valores lógicos a una variable dada: 
+
+```{r}
+mi_segunda_variable_logica <- c(F, T, F, F, T)
+mi_segunda_variable_logica
+```
+```{r}
+!mi_segunda_variable_logica
+```
+Para finalizar con los vectores lógicos, crearemos una variable con números desde el 1 al 10 y evaluaremos lógicamente cada uno de los valores para ver lo que hace R en este caso: 
+
+```{r}
+numeros <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+numeros >= 5
+```
+
+## Resumen y Ejercicios
+
+En este capítulo hemos revisado algunos comandos básicos en R, desde cómo usar R como una simple calculadora, revisando los operadores matemáticos básicos y pasando por la construcción de variables y la utilización de funciones, hasta como crear vectores numéricos, de texto y lógicos. No hemos revisado otras funcionalidades como el *flujo de control*, el cual está asociado al uso de bucles o *loops*. Estos conceptos pueden ser encontrados en el [Anexo 1](#anexo_1).  
+
+### Ejercicios
+
+En progreso.

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Comandos Básicos en R | Introducción a los Modelos Mixtos en Psicologia</title>
+  <meta name="description" content="Capítulo 6 Comandos Básicos en R | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Comandos Básicos en R | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Comandos Básicos en R | Introducción a los Modelos Mixtos en Psicologia" />
+  
+  
+  
+
+<meta name="author" content="Daniel Perez Zapata, PhD" />
+
+
+<meta name="date" content="2023-10-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelos-mixtos.html"/>
+<link rel="next" href="instalando-librerías-en-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a los Modelos Mixtos en Psicología</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#por-qué-programar-en-r"><i class="fa fa-check"></i><b>1.1</b> ¿Por qué Programar en R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#estructura-del-presente-curso"><i class="fa fa-check"></i><b>1.2</b> Estructura del Presente Curso</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#obstáculos-en-el-aprendizaje-de-r"><i class="fa fa-check"></i><b>1.3</b> Obstáculos en el Aprendizaje de R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#consideraciones-finales"><i class="fa fa-check"></i><b>1.4</b> Consideraciones Finales</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html"><i class="fa fa-check"></i><b>2</b> R en Acción: Analizando un Estudio Empírico Real</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#cargando-una-base-de-datos-desde-la-web"><i class="fa fa-check"></i><b>2.1</b> Cargando una Base de Datos desde la Web</a></li>
+<li class="chapter" data-level="2.2" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#seleccionando-columnas-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Seleccionando Columnas en una Base de Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#seleccionando-filas-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.3</b> Seleccionando Filas en una Base de Datos</a></li>
+<li class="chapter" data-level="2.4" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#limpiando-valores-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.4</b> Limpiando Valores en una Base de Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#creación-de-variables-a-partir-de-otras-columnas"><i class="fa fa-check"></i><b>2.5</b> Creación de Variables a partir de otras Columnas</a></li>
+<li class="chapter" data-level="2.6" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#graficando-datos-y-otras-funcionalidades"><i class="fa fa-check"></i><b>2.6</b> Graficando Datos y otras Funcionalidades</a></li>
+<li class="chapter" data-level="2.7" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#resumen-y-ejercicios"><i class="fa fa-check"></i><b>2.7</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#ejercicios"><i class="fa fa-check"></i><b>2.7.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regresion-lineal.html"><a href="regresion-lineal.html"><i class="fa fa-check"></i><b>3</b> Regresion Lineal</a></li>
+<li class="chapter" data-level="4" data-path="chapter_3.html"><a href="chapter_3.html"><i class="fa fa-check"></i><b>4</b> ¿Qué es R? Instalando R y RStudio</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chapter_3.html"><a href="chapter_3.html#definiendo-r"><i class="fa fa-check"></i><b>4.1</b> Definiendo R</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter_3.html"><a href="chapter_3.html#instalando-r"><i class="fa fa-check"></i><b>4.2</b> Instalando R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chapter_3.html"><a href="chapter_3.html#r-para-windows"><i class="fa fa-check"></i><b>4.2.1</b> R para Windows</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chapter_3.html"><a href="chapter_3.html#r-para-mac"><i class="fa fa-check"></i><b>4.2.2</b> R para Mac</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chapter_3.html"><a href="chapter_3.html#r-para-linux"><i class="fa fa-check"></i><b>4.2.3</b> R para Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chapter_3.html"><a href="chapter_3.html#instalando-rstudio"><i class="fa fa-check"></i><b>4.3</b> Instalando RStudio</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter_3.html"><a href="chapter_3.html#capiulo3_4"><i class="fa fa-check"></i><b>4.4</b> Explorando RStudio</a></li>
+<li class="chapter" data-level="4.5" data-path="chapter_3.html"><a href="chapter_3.html#la-consola-y-el-panel-de-código-script"><i class="fa fa-check"></i><b>4.5</b> La Consola y el Panel de Código (<em>script</em>)</a></li>
+<li class="chapter" data-level="4.6" data-path="chapter_3.html"><a href="chapter_3.html#presentando-r-notebook"><i class="fa fa-check"></i><b>4.6</b> Presentando R Notebook</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="chapter_3.html"><a href="chapter_3.html#insertando-y-ejecutando-porciones-de-código"><i class="fa fa-check"></i><b>4.6.1</b> Insertando y Ejecutando Porciones de Código</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="chapter_3.html"><a href="chapter_3.html#resumen-y-ejercicios-1"><i class="fa fa-check"></i><b>4.7</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="chapter_3.html"><a href="chapter_3.html#ejercicios-1"><i class="fa fa-check"></i><b>4.7.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-mixtos.html"><a href="modelos-mixtos.html"><i class="fa fa-check"></i><b>5</b> Modelos Mixtos</a></li>
+<li class="chapter" data-level="6" data-path="chapter_4.html"><a href="chapter_4.html"><i class="fa fa-check"></i><b>6</b> Comandos Básicos en R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chapter_4.html"><a href="chapter_4.html#r-como-una-simple-calculadora"><i class="fa fa-check"></i><b>6.1</b> R como una Simple Calculadora</a></li>
+<li class="chapter" data-level="6.2" data-path="chapter_4.html"><a href="chapter_4.html#orden-de-operaciones-matemáticas-en-r"><i class="fa fa-check"></i><b>6.2</b> Orden de Operaciones Matemáticas en R</a></li>
+<li class="chapter" data-level="6.3" data-path="chapter_4.html"><a href="chapter_4.html#variables-en-r"><i class="fa fa-check"></i><b>6.3</b> Variables en R</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chapter_4.html"><a href="chapter_4.html#chapter_4.3.1"><i class="fa fa-check"></i><b>6.3.1</b> Construyendo Variables en R</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chapter_4.html"><a href="chapter_4.html#reglas-para-nombrar-variables"><i class="fa fa-check"></i><b>6.3.2</b> Reglas para Nombrar Variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chapter_4.html"><a href="chapter_4.html#convenciones-informales-para-nombrar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Convenciones Informales para Nombrar Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chapter_4.html"><a href="chapter_4.html#errores-de-escritura-o-typos-en-r"><i class="fa fa-check"></i><b>6.4</b> Errores de Escritura o <em>typos</em> en R</a></li>
+<li class="chapter" data-level="6.5" data-path="chapter_4.html"><a href="chapter_4.html#funciones-en-r"><i class="fa fa-check"></i><b>6.5</b> Funciones en R</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="chapter_4.html"><a href="chapter_4.html#argumentos-sus-nombres-y-valores-por-defecto-en-las-funciones"><i class="fa fa-check"></i><b>6.5.1</b> Argumentos, sus Nombres y Valores por Defecto en las Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-números-o-vectores-en-variables"><i class="fa fa-check"></i><b>6.6</b> Almacenando Números (o Vectores) en Variables</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="chapter_4.html"><a href="chapter_4.html#modificando-los-valores-de-un-vector"><i class="fa fa-check"></i><b>6.6.1</b> Modificando los Valores de un Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-texto-en-variables"><i class="fa fa-check"></i><b>6.7</b> Almacenando Texto en Variables</a></li>
+<li class="chapter" data-level="6.8" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-valores-lógicos-en-variables"><i class="fa fa-check"></i><b>6.8</b> Almacenando Valores Lógicos en Variables</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="chapter_4.html"><a href="chapter_4.html#evaluando-verdades-matemáticas"><i class="fa fa-check"></i><b>6.8.1</b> Evaluando Verdades Matemáticas</a></li>
+<li class="chapter" data-level="6.8.2" data-path="chapter_4.html"><a href="chapter_4.html#más-operadores-lógicos"><i class="fa fa-check"></i><b>6.8.2</b> Más Operadores Lógicos</a></li>
+<li class="chapter" data-level="6.8.3" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-datos-lógicos-en-variables-al-fin"><i class="fa fa-check"></i><b>6.8.3</b> Almacenando Datos Lógicos en Variables (Al fin!)</a></li>
+<li class="chapter" data-level="6.8.4" data-path="chapter_4.html"><a href="chapter_4.html#vectores-lógicos"><i class="fa fa-check"></i><b>6.8.4</b> Vectores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="chapter_4.html"><a href="chapter_4.html#resumen-y-ejercicios-2"><i class="fa fa-check"></i><b>6.9</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="chapter_4.html"><a href="chapter_4.html#ejercicios-2"><i class="fa fa-check"></i><b>6.9.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="instalando-librerías-en-r.html"><a href="instalando-librerías-en-r.html"><i class="fa fa-check"></i><b>7</b> Instalando Librerías en R</a></li>
+<li class="chapter" data-level="8" data-path="glosario.html"><a href="glosario.html"><i class="fa fa-check"></i><b>8</b> Glosario</a></li>
+<li class="chapter" data-level="" data-path="anexo_1.html"><a href="anexo_1.html"><i class="fa fa-check"></i>Anexo 1: Más Comandos Básicos</a></li>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html"><i class="fa fa-check"></i>Anexo 2: Respuesta a Ejercicios</a>
+<ul>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html#respuestas-de-ejercicios-de-la-subsección-2.7.1"><i class="fa fa-check"></i>Respuestas de Ejercicios de la Subsección 2.7.1</a></li>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html#anexo_3_7_1"><i class="fa fa-check"></i>Respuestas de Ejercicios de la Subsección 3.7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-el-autor-del-curso.html"><a href="sobre-el-autor-del-curso.html"><i class="fa fa-check"></i>Sobre el Autor del Curso</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a los Modelos Mixtos en Psicologia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter_4" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Comandos Básicos en R<a href="chapter_4.html#chapter_4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>En este capítulo revisaremos cómo interactuar con R de forma muy básica y sencilla. Empezaremos usando R como si fuera una calculadora común y corriente, lo cual nos ayudará a obtener nuestros primeros resultados de manera exitosa (aumentando así nuestra confianza en nuestras propias capacidades como futuros analistas de datos 👊). Posteriormente, echaremos un vistazo a cómo construir y asignar valores a variables, una de las funcionalidades más útiles de R. Luego, pasaremos a describir algunos de los tipos de datos con los cuales trabaja R: números, texto y valores lógicos, ilustrando para cada uno de ellos la posibilidad de construir vectores. Al final del capítulo terminaremos con algunos ejercicios como ya es costumbre.</p>
+<p>Se asume que a esta altura que la y el lector ya ha instalado R y RStudio en su computador. En cuanto a la forma de escribir código, el usuario puede utilizar la consola de R, el panel de script o R Notebooks (ver <a href="chapter_3.html#capiulo3_4">Capítulo 3</a> para más detalles), siendo esta última la forma recomendada para proceder, pero no hay problema con usar las otras opciones.</p>
+<div id="r-como-una-simple-calculadora" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> R como una Simple Calculadora<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><a href="chapter_4.html#r-como-una-simple-calculadora" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las primeras cosas que podemos hacer para comenzar a familiarizarnos con R es usarla como si fuera una simple calculadora. De esta manera, escribiremos los primeros comandos o instrucciones y obtendremos resultados conocidos a partir de nuestra experiencia con cálculos matemáticos adquiridos durante nuestra educación primaria. Nada intimidante la verdad. En la consola de R, podemos escribir <code>2 + 5</code> y luego apretar “<em>enter</em>”. Cuando escribimos <code>2 + 5</code> lo que hicimos fue escribir un <strong>comando</strong> y R ejecutará dicho comando. Lo que tu vas a ver en la consola de R corresponde a:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb64-1"><a href="chapter_4.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span></span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 7</code></pre>
+<p>Ahora bien, este simple ejemplo nos servirá para explicar algunas cosas muy simples de R. El primer bloque de arriba (es decir, <code>2 + 5</code>) corresponde al comando o instrucciones que escribimos y el bloque de abajo es el <em>output</em> o salida de R, el cual nos muestra el resultado de la suma. En este bloque, aparecen dos <em>hashtags</em> o “<em>signos gatos</em>” (como le decimos en Chile), al lado <code>[1]</code>, el cual señala el número del output producido por R (y que por cierto nosotros no escribimos, sino fue producido por R) y al lado, finalmente, aparece el resultado de la sumatoria, es decir, <code>7</code>. <em>So far, so good!</em> (¡hasta ahora todo bien!).</p>
+<p>En la tabla 4.1, puedes encontrar un resumen de algunas operaciones matemáticas básicas en R.</p>
+                              <center> <h3>Tabla 4.1 </h3> </center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operación</th>
+<th align="center">Símbolo u operador</th>
+<th align="center">Ejemplo</th>
+<th align="center">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Suma</td>
+<td align="center">+</td>
+<td align="center"><code>3 + 6</code></td>
+<td align="center"><code>9</code></td>
+</tr>
+<tr class="even">
+<td align="center">Resta</td>
+<td align="center">-</td>
+<td align="center"><code>6 - 2</code></td>
+<td align="center"><code>4</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Multiplicación</td>
+<td align="center">*</td>
+<td align="center"><code>5 * 8</code></td>
+<td align="center"><code>40</code></td>
+</tr>
+<tr class="even">
+<td align="center">División</td>
+<td align="center">/</td>
+<td align="center"><code>21 / 7</code></td>
+<td align="center"><code>3</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Potencia</td>
+<td align="center">^</td>
+<td align="center"><code>2 ^ 6</code></td>
+<td align="center"><code>64</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="orden-de-operaciones-matemáticas-en-r" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Orden de Operaciones Matemáticas en R<a href="chapter_4.html#orden-de-operaciones-matemáticas-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Habiendo presentado brevemente los símbolos matemáticos en R, cuando nos enfrentamos a situaciones donde debemos escribir diferentes cálculos, el orden de ejecución de dichas operaciones sigue el mismo orden que aprendimos durante nuestro tiempo escolar: se realiza primero lo que está dentro del paréntesis, luego potencias, para después seguir con divisiones y multiplicaciones, para finalmente terminar con sumas y restas. Abajo encontrarán tres breves ejemplos en R que ilustran estos principios.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb66-1"><a href="chapter_4.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> <span class="dv">12</span> </span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 65</code></pre>
+<p>En el caso de arriba, el número <code>5</code> es multiplicado con el número <code>12</code> y luego al final se le suma el número <code>5</code> para obtener el resultado de <code>65</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb68-1"><a href="chapter_4.html#cb68-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">12</span> </span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 120</code></pre>
+<p>En este bloque, primero se suman los dos números que están al interior del paréntesis (es decir, <code>5 + 5 = 10</code>) y luego el resultado se multiplica con <code>12</code> para obtener <code>120</code>.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb70-1"><a href="chapter_4.html#cb70-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>  <span class="sc">^</span> <span class="dv">3</span> ) <span class="sc">/</span> <span class="dv">2</span> </span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 4</code></pre>
+<p>Al igual que el ejemplo de arriba, la operación que está dentro del paréntesis es lo que se ejecuta en primer lugar (es decir, la potencia de 2 elevada al cubo = <code>2 × 2 × 2 = 8</code>), cuyo resultado después será dividido por <code>2</code>, lo que equivale a <code>4</code>.</p>
+</div>
+<div id="variables-en-r" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Variables en R<a href="chapter_4.html#variables-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las principales ventajas de usar R es que podemos crear variables con el fin de almacenar información en ellas. Una manera bastante simple de entender el rol de las variables en R es que nosotros asignamos una etiqueta o un nombre a un conjunto de información determinada. La gracia de R en este caso es bastante grande: para realizar análisis de datos se necesita poder usar variables y R nos permite hacerlo de manera bastante sencilla.</p>
+<div id="chapter_4.3.1" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Construyendo Variables en R<a href="chapter_4.html#chapter_4.3.1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para crear una variable, debemos utilizar el operador de asignación <code>&lt;-</code>. Veamos un ejemplo.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb72-1"><a href="chapter_4.html#cb72-1" aria-hidden="true" tabindex="-1"></a>mi_edad <span class="ot">&lt;-</span> <span class="dv">35</span></span></code></pre></div>
+<p>Arriba he creado una variable que tiene por nombre o etiqueta <code>mi_edad</code> (lado izquierdo del comando) y he asignado un valor numérico a esta variable (<code>35</code>, el cual está en el lado derecho) a través del operador de asignación <code>&lt;-</code>. Ahora, si escribo y ejecuto la variable <code>mi_edad</code>, veamos lo que pasa.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb73-1"><a href="chapter_4.html#cb73-1" aria-hidden="true" tabindex="-1"></a>mi_edad</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 35</code></pre>
+<p>R ha impreso el valor <code>35</code>, el cual corresponde a la operación realizada más arriba. Ahora imaginemos que deseo realizar algunas operaciones matemáticas con la variable <code>mi_edad</code>:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb75-1"><a href="chapter_4.html#cb75-1" aria-hidden="true" tabindex="-1"></a>mi_edad <span class="sc">*</span> <span class="dv">5</span></span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 175</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb77-1"><a href="chapter_4.html#cb77-1" aria-hidden="true" tabindex="-1"></a>mi_edad <span class="sc">/</span> <span class="dv">5</span></span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb79-1"><a href="chapter_4.html#cb79-1" aria-hidden="true" tabindex="-1"></a>mi_edad <span class="sc">^</span>  <span class="dv">5</span></span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 52521875</code></pre>
+<p>En estos tres ejemplos, podemos ver la versatilidad y sencillez de R para ejecutar operaciones matemáticas sobre una variable arbitraria. ¡Imaginen las posibilidades que nos ofrece R para interactuar de diferentes maneras con set de datos!</p>
+<p align="center">
+  <img width="280" height="200" src="images/monkey.gif">
+</p>
+<p align="center">
+Figura 7. Usuario inicial de R imaginando las posibilidades.
+</p>
+<p>Incluso podemos crear nuevas variables y aplicar operaciones matemáticas entre ellas. Veamos los siguientes ejemplos.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb81-1"><a href="chapter_4.html#cb81-1" aria-hidden="true" tabindex="-1"></a>mi_sueldo_al_mes <span class="ot">&lt;-</span> <span class="dv">2000</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb82-1"><a href="chapter_4.html#cb82-1" aria-hidden="true" tabindex="-1"></a>mi_sueldo_al_mes </span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 2000</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb84-1"><a href="chapter_4.html#cb84-1" aria-hidden="true" tabindex="-1"></a>mi_sueldo_al_mes <span class="sc">*</span> mi_edad</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 70000</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb86-1"><a href="chapter_4.html#cb86-1" aria-hidden="true" tabindex="-1"></a>mi_sueldo_al_mes <span class="sc">+</span> mi_edad <span class="sc">/</span> <span class="dv">10</span></span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 2003.5</code></pre>
+<p>Con estos sencillos ejemplos, podemos comenzar a apreciar cómo en R creamos variables (u objetos), asignándole valores numéricos con los cuales jugar y combinar para empezar a realizar análisis de datos.</p>
+</div>
+<div id="reglas-para-nombrar-variables" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Reglas para Nombrar Variables<a href="chapter_4.html#reglas-para-nombrar-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R tiene posee algunas reglas generales para etiquetar o nombrar variables. A continuación, las listaré con el fin de comentarlas solo un poco porque son bastante auto explicativas.</p>
+<ul>
+<li><p>Los nombres de variables usan caracteres en minúsculas y mayúsculas (R reconoce estas diferencias al momento de escribir sus variables). Se pueden incluir números en el nombre de variables, también puntos <code>.</code> o guion bajo <code>_</code> . Un nombre de variable valido es <code>item_empatia_1</code> o también <code>ítem.empatía.2</code>. El segundo ejemplo incorpora tildes, los cuales son asignados correctamente en R, aunque debemos tener cuidado que al usar tildes, debemos utilizarlas siempre para nuestro trabajo posterior. Sino, R nos dará un error.</p></li>
+<li><p>Los nombres de las variables no deben incluir espacios. <code>mi edad</code> no es un nombre válido; en cambio, <code>mi.edad</code> o <code>mi_edad</code> lo son.</p></li>
+<li><p>Los nombres deben empezar con una letra o con punto, pero no pueden empezar con guión bajo o con número. Por lo tanto, <code>_mi_edad</code>, <code>35_mi_edad</code>, son ejemplos inválidos en R.</p></li>
+<li><p>No podemos nombrar a nuestras variables con los nombres reservados en R. Los nombres reservados de R son nombres especiales que R utiliza para realizar ciertas operaciones y que debe restringir para que no haya problemas cuando se les requiera. Los nombres reservados son: <code>if</code>, <code>else</code>, <code>repeat</code>, <code>while</code>, <code>function</code>, <code>for</code>, <code>in</code>, <code>next</code>, <code>break</code>, <code>TRUE</code>, <code>FALSE</code>, <code>NULL</code>, <code>Inf</code>, <code>NaN</code>, <code>NA</code>, <code>NA_integer_</code>, <code>NA_real_</code>, <code>NA_complex_</code> y <code>NA_character_</code>. Les recomendaría que no inviertan su tiempo en memorizarlas (de hecho, yo casi no me las sé y tuve que mirar un documento para escribirlas aquí).</p></li>
+</ul>
+</div>
+<div id="convenciones-informales-para-nombrar-variables" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Convenciones Informales para Nombrar Variables<a href="chapter_4.html#convenciones-informales-para-nombrar-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A continuación, mencionaré algunas convenciones o recomendaciones informales que se tienden a utilizar en los nombres de variables en R. Si bien, obviamente, no es obligatoria seguirlas, es una buena práctica cumplir con ellas, sobretodo, si luego tu código será compartido con otras personas dentro de un flujo de trabajo.</p>
+<ul>
+<li><p>Usar nombres informativos. Por ejemplo, buenos ejemplos podrían ser <code>edad</code> o <code>educacion</code> y malos ejemplos podrían ser <code>variable_1</code> o <code>nueva_variable</code> debido a que sus nombres no nos dicen nada acerca de qué se tratan dichas variables.</p></li>
+<li><p>Usar nombres breves o cortos. Escribir nombres largos de variables es una “lata” y, probablemente, una pérdida de tiempo cuando estemos concentrados en realizar nuestros análisis de datos. Un ejemplo de un nombre de variable muy largo sería <code>edad_de_los_participantes</code>. Sin embargo, es difícil mantener un buen equilibrio en construir nombres informativos y significativos, sin que sean demasiado largos. Cuando llegue el momento, uno deberá tomar ciertas decisiones al respecto.</p></li>
+<li><p>Ser consistente en la manera de nombrar variables. Como vimos arriba, podemos nombrar las variables con guión bajo o con puntos, cualquiera de las dos maneras está bien, pero lo más relevante es usar solo uno de ellos cuando se estén asignados el nombre a las variables en nuestro estudio. Otras personas prefieren usar mayúsculas evitando el uso de otros símbolos como por ejemplo <code>EdadNiños</code>. Por lo tanto, el mensaje central es ser consistente.</p></li>
+</ul>
+</div>
+</div>
+<div id="errores-de-escritura-o-typos-en-r" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Errores de Escritura o <em>typos</em> en R<a href="chapter_4.html#errores-de-escritura-o-typos-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para interactuar con R, nuestras instrucciones y nombres de variables deben ser claras y precisas. De este modo, R podrá realizar exactamente lo que nosotros le pidamos. Sin embargo, si no somos lo suficientemente claros y precisos, R no hará lo que le pidamos y nos dará algún mensaje de error de algún tipo. Y aceptémoslo, más temprano que tarde cometeremos un error de escritura en R, el cual será el inicio de muchos errores en el camino que emprendamos en el análisis de datos a través del uso de R. Este es solo un recordatorio amigable que no debemos sentirnos mal cuando cometamos un error en R. Esto también es una señal de que estamos avanzando y aprendiendo.</p>
+</div>
+<div id="funciones-en-r" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Funciones en R<a href="chapter_4.html#funciones-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uno de los elementos más útiles en R al realizar análisis de datos es la utilización de funciones. En esta subsección, revisaremos algunos elementos básicos de las funciones y más adelante veremos cómo podemos empezar a definir funciones. En el inicio del capítulo 3 vimos un ejemplo de función aplicada a una variable (es decir, <code>sqrt(x)</code>). En ese ejemplo, usamos una de las funciones bases de R para obtener la raíz cuadrada de 16 que estaba almacenada en <code>x</code>. Obviamente, podemos obtener el mismo resultado aplicando dicha función a la siguiente expresión numérica (abajo muestro nuevamente la aplicación de la función a una variable, como recordatorio):</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb88-1"><a href="chapter_4.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb90-1"><a href="chapter_4.html#cb90-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">16</span></span>
+<span id="cb90-2"><a href="chapter_4.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 4</code></pre>
+<p>En vez de estar escribiendo una fórmula matemática en R para la raíz cuadrada, podemos usar esta función para obtener nuestro resultado a un valor determinado (ya sea un número o una variable como en los ejemplos de arriba). Ahora, aprovecharemos de explicar algunos términos técnicos para este caso. Usualmente, cuando aplicamos una función en R, decimos que <em>llamaremos</em> (<em>calling</em>) dicha función y todos aquellos valores que escribamos dentro de la función (es decir, dentro del paréntesis), son referidos como <em>argumentos</em> (<em>arguments</em>). Y la respuesta es sí, podemos escribir más de un argumento en una función.</p>
+<div id="argumentos-sus-nombres-y-valores-por-defecto-en-las-funciones" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Argumentos, sus Nombres y Valores por Defecto en las Funciones<a href="chapter_4.html#argumentos-sus-nombres-y-valores-por-defecto-en-las-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Arriba ya adelantamos que al interior de las funciones se pueden escribir argumentos y voy a recalcar el plural aquí. Dentro del paréntesis de las funciones, se pueden distinguir el <em>nombre de los argumentos</em> y sus <em>valores por defecto</em>. Para explicar estos conceptos, introduciremos una nueva función <code>round()</code>, la cual tiene por objetivo redondear un valor hacia el número entero más cercano. Veamos un ejemplo con el famoso número pi:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb92-1"><a href="chapter_4.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.141592</span>)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 3</code></pre>
+<p>En este ejemplo, podemos claramente darnos cuenta que el número aproximado corresponde al 3 (y no al 4 que está mucho más lejos en la recta numérica). Ahora supongamos que queremos redondear nuestro número a 2 dígitos. Para esto, podemos escribir:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb94-1"><a href="chapter_4.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.141592</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 3.14</code></pre>
+<p>En esta expresión, tenemos 2 argumentos al interior de la función <code>round</code>: el primer argumento que corresponde al valor a ser redondeado (es decir, 3.141592) y el segundo argumento es el número de decimales a aproximar (es decir, 2) y, ambos, están separados por una coma. Si notaron sagazmente, cuando escribimos <code>round(3.141592)</code> en el primer caso, no hubo un segundo argumento en la función, por lo que R asumió el argumento por defecto. Al no estar escrito, asumió que estábamos buscando redondear al valor entero más cercano sin decimales, así que allí fue completado con el número 0 el cual es el <em>valor por defecto</em> para esta función en R. Sin embargo, en el segundo caso, nosotros escribimos explícitamente un argumento (es decir, <code>2</code>) en la segunda posición de la función. De este modo, nosotros utilizamos la segunda posición de los argumentos de la función para definir el número de decimales a aproximar. Sin embargo, si queremos estar seguros de pasar el valor correcto al argumento de la función <code>round</code>, podemos escribir el o los nombres de los argumentos (es decir, <code>x</code> y <code>digits</code>). Esto quedará mucho más claro en el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb96-1"><a href="chapter_4.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">3.141592</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 3.14</code></pre>
+<p>De esta manera, no cabe ningún tipo de ambigüedades para los valores utilizados ya que han sido asignados bajo el nombre de los argumentos en conjunto con el símbolo <code>=</code>. Al mismo tiempo, al usar esta forma de pasar los argumentos al interior de la función, da lo mismo la posición de los nombres de los argumentos: obtendremos el mismo resultado, como lo muestra el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r bg-danger"><code class="sourceCode r"><span id="cb98-1"><a href="chapter_4.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>, <span class="at">x =</span> <span class="fl">3.141592</span>)</span></code></pre></div>
+<pre class="bg-warning"><code>## [1] 3.14</code></pre>
+<p>Pero vale la pena recalcar que si no utilizamos los nombres de los argumentos al interior de la función, debemos respetar en qué posición son asignados los valores como lo vimos en los ejemplos de más arriba (en el caso de la función <code>round</code>, primero se debe poner el valor a redonderar, luego coma y el valor de los decimales a redondear).</p>
+</div>
+</div>
+<div id="almacenando-números-o-vectores-en-variables" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Almacenando Números (o Vectores) en Variables<a href="chapter_4.html#almacenando-números-o-vectores-en-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las funcionalidades más importantes que nos entrega R es la posibilidad de almacenar valores numéricos a partir de la función <code>c</code> que es una abreviación para la función <code>combine</code> o combinar. Esto ya fue brevemente mencionado en el capítulo 2 cuando estábamos seleccionando columnas en un <em>data frame</em>. A continuación, mostramos un ejemplo donde almacenaremos un conjunto de valores numéricos en la variable <code>ejemplo_vector</code> y luego lo ejecutaremos:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="chapter_4.html#cb100-1" aria-hidden="true" tabindex="-1"></a>ejemplo_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">34</span>, <span class="dv">64</span>, <span class="dv">100</span>,<span class="dv">78</span>, <span class="dv">3</span>, <span class="dv">52</span>, <span class="dv">91</span>)</span>
+<span id="cb100-2"><a href="chapter_4.html#cb100-2" aria-hidden="true" tabindex="-1"></a>ejemplo_vector</span></code></pre></div>
+<pre><code>##  [1]  20  10   8  34  64 100  78   3  52  91</code></pre>
+<p>El vector <code>c(20, 10, 8, 34, 64, 100,78, 3, 52, 91)</code> almacenado en la variable <code>ejemplo_vector</code> posee 10 elementos. Al mismo tiempo, es muy útil saber cómo obtener información de los elementos de un vector. Si quisiéramos saber el quinto valor de la variable <code>ejemplo_vector</code>, el cual es <code>64</code>, vamos a escribir [5] y aplicarla a la variable. Por ejemplo:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="chapter_4.html#cb102-1" aria-hidden="true" tabindex="-1"></a>ejemplo_vector[<span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 64</code></pre>
+<div id="modificando-los-valores-de-un-vector" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Modificando los Valores de un Vector<a href="chapter_4.html#modificando-los-valores-de-un-vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Otra función sumamente útil de R es poder alterar o modificar los valores dentro de un vector particular. Para realizar esto, simplemente debemos utilizar la misma idea expresada en la línea de código de arriba y asignar un nuevo valor numérico al elemento a modificar. Por ejemplo, vamos a modificar el valor <code>64</code> por <code>9999</code>, y luego imprimiremos la variable con la modificación del valor del vector abajo:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="chapter_4.html#cb104-1" aria-hidden="true" tabindex="-1"></a>ejemplo_vector[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">9999</span></span>
+<span id="cb104-2"><a href="chapter_4.html#cb104-2" aria-hidden="true" tabindex="-1"></a>ejemplo_vector</span></code></pre></div>
+<pre><code>##  [1]   20   10    8   34 9999  100   78    3   52   91</code></pre>
+</div>
+</div>
+<div id="almacenando-texto-en-variables" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Almacenando Texto en Variables<a href="chapter_4.html#almacenando-texto-en-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>No solo podemos almacenar información numérica en variables, sino también podemos almacenar texto, caracteres (o también conocidos como <em>strings</em>) en las variables. Véase el ejemplo del código debajo y obsérvese que el texto está entre comillas (aunque éstas no forman parte de la variable, pero son necesarias para ingresar texto); luego, hemos ingresado la variable al final para que nos de su resultado:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="chapter_4.html#cb106-1" aria-hidden="true" tabindex="-1"></a>saludo <span class="ot">&lt;-</span> <span class="st">&#39;hola&#39;</span></span>
+<span id="cb106-2"><a href="chapter_4.html#cb106-2" aria-hidden="true" tabindex="-1"></a>saludo</span></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;</code></pre>
+<p>Es importante mencionar para las variables de texto o caracteres que R las almacena como un elemento singular o particular (a diferencia de los valores numéricos en un vector). Esto se puede apreciar en el siguiente código:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="chapter_4.html#cb108-1" aria-hidden="true" tabindex="-1"></a>saludo[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;</code></pre>
+<p>De este modo, nos podemos percatar que la variable <code>saludo</code> no es un vector con 4 letras, sino que contiene un solo elemento. No obstante estas aclaraciones, esto no impide que podamos almacenar en un mismo vector más entradas de texto en ella. A este tipo de vector se le llama vector de caracteres. Esto se hace con la función <code>c</code> como lo muestra el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="chapter_4.html#cb110-1" aria-hidden="true" tabindex="-1"></a>saludo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;hola&quot;</span>,<span class="st">&quot;buen dia&quot;</span>,<span class="st">&quot;buenas tardes&quot;</span>,<span class="st">&quot;buenas noches&quot;</span>)</span>
+<span id="cb110-2"><a href="chapter_4.html#cb110-2" aria-hidden="true" tabindex="-1"></a>saludo</span></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;          &quot;buen dia&quot;      &quot;buenas tardes&quot; &quot;buenas noches&quot;</code></pre>
+<p>Asimismo, para acceder al, por ejemplo, segundo valor de la variable <code>saludo</code> podemos usar la siguiente instrucción:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="chapter_4.html#cb112-1" aria-hidden="true" tabindex="-1"></a>saludo[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;buen dia&quot;</code></pre>
+<p>De forma similar a la descrita más arriba, podemos modificar entradas específicas en el vector de texto <code>saludo</code>. Veamos el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="chapter_4.html#cb114-1" aria-hidden="true" tabindex="-1"></a>saludo[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&#39;hasta la vista baby&#39;</span></span>
+<span id="cb114-2"><a href="chapter_4.html#cb114-2" aria-hidden="true" tabindex="-1"></a>saludo</span></code></pre></div>
+<pre><code>## [1] &quot;hola&quot;                &quot;buen dia&quot;            &quot;buenas tardes&quot;       &quot;hasta la vista baby&quot;</code></pre>
+<p>Solamente para terminar con esta subsección, me gustaría indicar que a las variables con caracteres no se le pueden aplicar las clásicas funciones cuantitativas ya revisadas como <code>sqrt()</code>, o <code>round()</code>. Para contar el número de caracteres que contiene una palabra usamos la función <code>nchar()</code>. Veamos el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="chapter_4.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(<span class="st">&#39;murcielago&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Por último, apliquemos esta función a la variable arriba creada:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="chapter_4.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(saludo)</span></code></pre></div>
+<pre><code>## [1]  4  8 13 19</code></pre>
+<p>Ténganse en mente que la variable <code>saludo</code> arrojo la siguiente salida: <code>[1] 4 8 13 19</code>. Estos valores se corresponden con las palabras “hola” = 4; “buen día” = 8 (aqui esta contando el espacio como caracter), etc.</p>
+</div>
+<div id="almacenando-valores-lógicos-en-variables" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Almacenando Valores Lógicos en Variables<a href="chapter_4.html#almacenando-valores-lógicos-en-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R también trabaja sobre <em>valores lógicos</em>. Básicamente, un valor lógico es una aserción sobre si algo es verdadero o falso. La implementación de dichos valores en R son TRUE y FALSE respectivamente.</p>
+<div id="evaluando-verdades-matemáticas" class="section level3 hasAnchor" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Evaluando Verdades Matemáticas<a href="chapter_4.html#evaluando-verdades-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como comienza refiriéndose Danielle Navarro en su libro <em>Learning Statistics with R</em>, en el ya clásico libro de George Orwell 1984, uno de los eslóganes utilizados por el partido totalitario era “dos más dos es igual cinco”. La idea contempla que la dominación política de la libertad humana se vuelve completa cuando es posible subvertir incluso las más básicas verdades, en este caso, verdades matemáticas formales. Introducimos esta analogía solamente para examinar cómo R utiliza los operadores lógicos booleanos descritos arriba y comprobar que R no se somete a los dictámenes del partido totalitario. Por ejemplo:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="chapter_4.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>Ahora podemos respirar tranquilos, al menos 2 + 2 es 4. Pero ahora supongamos que queremos R evalúe si una proposición es verdadera o no.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="chapter_4.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Arriba hemos utilizado el operador de igualdad <code>==</code>, para que R nos diga si una proposición es verdadera o falsa (en este caso verdadera). Veamos qué piensa del slogan del partido totalitario.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="chapter_4.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Aún hay esperanzas en el reino de R señoras y señores. 2 + 2 == 5 es una proposición falsa!</p>
+</div>
+<div id="más-operadores-lógicos" class="section level3 hasAnchor" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Más Operadores Lógicos<a href="chapter_4.html#más-operadores-lógicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Habiendo introducido los operadores lógicos más básicos arriba, aprovecharemos la oportunidad para mostrar que podemos combinarlos y resumiremos en la tabla 4.2 más operadores lógicos. Veamos un ejemplo de cómo combinar operadores lógicos:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="chapter_4.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">*</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">==</span> <span class="dv">6</span> <span class="sc">*</span> <span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>En la expresión numérica de arriba, hemos combinado valores y aplicado una función lógica con un resultado de <code>TRUE</code>. De este modo, es posible utilizar R para la evaluación de expresiones lógicas. Pero su potencial va más allá de determinar si una proposición dada es verdadera o falsa, sino que a través de la utilización de estas expresiones podemos filtrar bases de datos como lo vimos en el capítulo 2 al usar la función <code>subset()</code>.</p>
+                              <center> <h3>Tabla 4.2 </h3> </center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Número</th>
+<th align="center">Operación</th>
+<th align="center">Operador</th>
+<th align="center">Ejemplo</th>
+<th align="center">Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Menor que</td>
+<td align="center">&lt;</td>
+<td align="center">1 &lt; 5</td>
+<td align="center">Verdadero</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Menor que o igual a</td>
+<td align="center">&lt;=</td>
+<td align="center">3 &lt;= 3</td>
+<td align="center">Verdadero</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Mayor que</td>
+<td align="center">&gt;</td>
+<td align="center">5 &gt; 7</td>
+<td align="center">Falso</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Mayor que o igual a</td>
+<td align="center">&gt;=</td>
+<td align="center">4 &gt;= 2</td>
+<td align="center">Verdadero</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Igual a</td>
+<td align="center">==</td>
+<td align="center">10 == 2</td>
+<td align="center">Falso</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">No igual a</td>
+<td align="center">!=</td>
+<td align="center">10 != 2</td>
+<td align="center">Verdadero</td>
+</tr>
+</tbody>
+</table>
+<p>Sigamos examinando unos pocos ejemplos más para ver cómo R utiliza estos operadores lógicos. Se recomienda que las y los lectores sigan probando y jugando con el uso de los diferentes operador para comprender de mejor manera su funcionamiento.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="chapter_4.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> <span class="sc">&lt;</span> <span class="dv">30</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="chapter_4.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="dv">30</span> <span class="sc">&lt;=</span> <span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="chapter_4.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1000.010</span> <span class="sc">&gt;</span> <span class="fl">1000.090</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="chapter_4.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1000</span> <span class="sc">&gt;</span> <span class="dv">1000</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="chapter_4.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span> <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">21</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Finalizaremos el resumen de las operaciones lógicas con la tabla 4.3, en donde aparecen los operadores de negación, disyunción y conjunción.</p>
+                              <center> <h3>Tabla 4.3 </h3> </center>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Número</th>
+<th align="center">Operación</th>
+<th align="center">Operador</th>
+<th align="center">Ejemplo</th>
+<th align="center">Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Negación</td>
+<td align="center">!</td>
+<td align="center">!(8 == 8)</td>
+<td align="center">Falso</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Disyunción</td>
+<td align="center">|</td>
+<td align="center">(1 == 1) | (2 == 3)</td>
+<td align="center">Verdadero</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Conjunción</td>
+<td align="center">&amp;</td>
+<td align="center">(1 == 1) &amp; (2 == 3)</td>
+<td align="center">Falso</td>
+</tr>
+</tbody>
+</table>
+<p>Abajo aparecen algunos ejemplos para ilustrar las operaciones de la tabla 4.3 y revisar los resultados de dichos procedimientos. Nótese que para la disyunción basta con que una de las expresiones sea verdadera para que el resultado final sea verdadero; en cambio, para la conjunción ambas expresiones deben ser verdaderas. Por último, para ejemplificar la negación, hemos escrito el símbolo al lado de <code>FALSE</code>, una de las expresiones reservadas de R.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="chapter_4.html#cb138-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|</span> (<span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="chapter_4.html#cb140-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">|</span> (<span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="chapter_4.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">FALSE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="almacenando-datos-lógicos-en-variables-al-fin" class="section level3 hasAnchor" number="6.8.3">
+<h3><span class="header-section-number">6.8.3</span> Almacenando Datos Lógicos en Variables (Al fin!)<a href="chapter_4.html#almacenando-datos-lógicos-en-variables-al-fin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ahora que ya hemos revisado algunos elementos básicos de las funciones lógicas en R, al fin podemos decir que, al igual que en el caso de los datos numéricos y de texto, es posible almacenar en variables datos lógicos. Veamos el siguiente ejemplo:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="chapter_4.html#cb144-1" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span><span class="dv">5</span></span>
+<span id="cb144-2"><a href="chapter_4.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Sin embargo, también podemos ingresar el valor lógico directamente:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="chapter_4.html#cb146-1" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb146-2"><a href="chapter_4.html#cb146-2" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Incluso R nos permite asignar solamente la primera letra mayúscula como valor lógico, es decir, T o F (aunque no reconoce para esta operación letras minúsculas):</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="chapter_4.html#cb148-1" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica <span class="ot">&lt;-</span> F</span>
+<span id="cb148-2"><a href="chapter_4.html#cb148-2" aria-hidden="true" tabindex="-1"></a>mi_primera_variable_logica</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="vectores-lógicos" class="section level3 hasAnchor" number="6.8.4">
+<h3><span class="header-section-number">6.8.4</span> Vectores Lógicos<a href="chapter_4.html#vectores-lógicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Al igual que los casos anteriores de vectores, podemos concatenar o combinar valores lógicos en un vector, veamos un ejemplo asignando un conjunto de valores lógicos a una variable dada:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="chapter_4.html#cb150-1" aria-hidden="true" tabindex="-1"></a>mi_segunda_variable_logica <span class="ot">&lt;-</span> <span class="fu">c</span>(F, T, F, F, T)</span>
+<span id="cb150-2"><a href="chapter_4.html#cb150-2" aria-hidden="true" tabindex="-1"></a>mi_segunda_variable_logica</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="chapter_4.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>mi_segunda_variable_logica</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE FALSE</code></pre>
+<p>Para finalizar con los vectores lógicos, crearemos una variable con números desde el 1 al 10 y evaluaremos lógicamente cada uno de los valores para ver lo que hace R en este caso:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="chapter_4.html#cb154-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb154-2"><a href="chapter_4.html#cb154-2" aria-hidden="true" tabindex="-1"></a>numeros <span class="sc">&gt;=</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<div id="resumen-y-ejercicios-2" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Resumen y Ejercicios<a href="chapter_4.html#resumen-y-ejercicios-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En este capítulo hemos revisado algunos comandos básicos en R, desde cómo usar R como una simple calculadora, revisando los operadores matemáticos básicos y pasando por la construcción de variables y la utilización de funciones, hasta como crear vectores numéricos, de texto y lógicos. No hemos revisado otras funcionalidades como el <em>flujo de control</em>, el cual está asociado al uso de bucles o <em>loops</em>. Estos conceptos pueden ser encontrados en el <a href="anexo_1.html#anexo_1">Anexo 1</a>.</p>
+<div id="ejercicios-2" class="section level3 hasAnchor" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> Ejercicios<a href="chapter_4.html#ejercicios-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En progreso.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p> Para estructurar los contenidos de este capítulo, me he basado en el libro <em>Learning Statistics with R</em> escrito por Danielle Navarro.<a href="chapter_4.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelos-mixtos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="instalando-librerías-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/edit/main/04-lo_basico.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/blob/main/04-lo_basico.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 ¿Qué es R? Instalando R y RStudio | Introducción a los Modelos Mixtos en Psicologia</title>
+  <meta name="description" content="Capítulo 4 ¿Qué es R? Instalando R y RStudio | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 ¿Qué es R? Instalando R y RStudio | Introducción a los Modelos Mixtos en Psicologia" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 ¿Qué es R? Instalando R y RStudio | Introducción a los Modelos Mixtos en Psicologia" />
+  
+  
+  
+
+<meta name="author" content="Daniel Perez Zapata, PhD" />
+
+
+<meta name="date" content="2023-10-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regresion-lineal.html"/>
+<link rel="next" href="modelos-mixtos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a los Modelos Mixtos en Psicología</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#por-qué-programar-en-r"><i class="fa fa-check"></i><b>1.1</b> ¿Por qué Programar en R?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#estructura-del-presente-curso"><i class="fa fa-check"></i><b>1.2</b> Estructura del Presente Curso</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#obstáculos-en-el-aprendizaje-de-r"><i class="fa fa-check"></i><b>1.3</b> Obstáculos en el Aprendizaje de R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#consideraciones-finales"><i class="fa fa-check"></i><b>1.4</b> Consideraciones Finales</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html"><i class="fa fa-check"></i><b>2</b> R en Acción: Analizando un Estudio Empírico Real</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#cargando-una-base-de-datos-desde-la-web"><i class="fa fa-check"></i><b>2.1</b> Cargando una Base de Datos desde la Web</a></li>
+<li class="chapter" data-level="2.2" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#seleccionando-columnas-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.2</b> Seleccionando Columnas en una Base de Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#seleccionando-filas-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.3</b> Seleccionando Filas en una Base de Datos</a></li>
+<li class="chapter" data-level="2.4" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#limpiando-valores-en-una-base-de-datos"><i class="fa fa-check"></i><b>2.4</b> Limpiando Valores en una Base de Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#creación-de-variables-a-partir-de-otras-columnas"><i class="fa fa-check"></i><b>2.5</b> Creación de Variables a partir de otras Columnas</a></li>
+<li class="chapter" data-level="2.6" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#graficando-datos-y-otras-funcionalidades"><i class="fa fa-check"></i><b>2.6</b> Graficando Datos y otras Funcionalidades</a></li>
+<li class="chapter" data-level="2.7" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#resumen-y-ejercicios"><i class="fa fa-check"></i><b>2.7</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="r-en-acción-analizando-un-estudio-empírico-real.html"><a href="r-en-acción-analizando-un-estudio-empírico-real.html#ejercicios"><i class="fa fa-check"></i><b>2.7.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regresion-lineal.html"><a href="regresion-lineal.html"><i class="fa fa-check"></i><b>3</b> Regresion Lineal</a></li>
+<li class="chapter" data-level="4" data-path="chapter_3.html"><a href="chapter_3.html"><i class="fa fa-check"></i><b>4</b> ¿Qué es R? Instalando R y RStudio</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chapter_3.html"><a href="chapter_3.html#definiendo-r"><i class="fa fa-check"></i><b>4.1</b> Definiendo R</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter_3.html"><a href="chapter_3.html#instalando-r"><i class="fa fa-check"></i><b>4.2</b> Instalando R</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chapter_3.html"><a href="chapter_3.html#r-para-windows"><i class="fa fa-check"></i><b>4.2.1</b> R para Windows</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chapter_3.html"><a href="chapter_3.html#r-para-mac"><i class="fa fa-check"></i><b>4.2.2</b> R para Mac</a></li>
+<li class="chapter" data-level="4.2.3" data-path="chapter_3.html"><a href="chapter_3.html#r-para-linux"><i class="fa fa-check"></i><b>4.2.3</b> R para Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chapter_3.html"><a href="chapter_3.html#instalando-rstudio"><i class="fa fa-check"></i><b>4.3</b> Instalando RStudio</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter_3.html"><a href="chapter_3.html#capiulo3_4"><i class="fa fa-check"></i><b>4.4</b> Explorando RStudio</a></li>
+<li class="chapter" data-level="4.5" data-path="chapter_3.html"><a href="chapter_3.html#la-consola-y-el-panel-de-código-script"><i class="fa fa-check"></i><b>4.5</b> La Consola y el Panel de Código (<em>script</em>)</a></li>
+<li class="chapter" data-level="4.6" data-path="chapter_3.html"><a href="chapter_3.html#presentando-r-notebook"><i class="fa fa-check"></i><b>4.6</b> Presentando R Notebook</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="chapter_3.html"><a href="chapter_3.html#insertando-y-ejecutando-porciones-de-código"><i class="fa fa-check"></i><b>4.6.1</b> Insertando y Ejecutando Porciones de Código</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="chapter_3.html"><a href="chapter_3.html#resumen-y-ejercicios-1"><i class="fa fa-check"></i><b>4.7</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="chapter_3.html"><a href="chapter_3.html#ejercicios-1"><i class="fa fa-check"></i><b>4.7.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelos-mixtos.html"><a href="modelos-mixtos.html"><i class="fa fa-check"></i><b>5</b> Modelos Mixtos</a></li>
+<li class="chapter" data-level="6" data-path="chapter_4.html"><a href="chapter_4.html"><i class="fa fa-check"></i><b>6</b> Comandos Básicos en R</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chapter_4.html"><a href="chapter_4.html#r-como-una-simple-calculadora"><i class="fa fa-check"></i><b>6.1</b> R como una Simple Calculadora</a></li>
+<li class="chapter" data-level="6.2" data-path="chapter_4.html"><a href="chapter_4.html#orden-de-operaciones-matemáticas-en-r"><i class="fa fa-check"></i><b>6.2</b> Orden de Operaciones Matemáticas en R</a></li>
+<li class="chapter" data-level="6.3" data-path="chapter_4.html"><a href="chapter_4.html#variables-en-r"><i class="fa fa-check"></i><b>6.3</b> Variables en R</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chapter_4.html"><a href="chapter_4.html#chapter_4.3.1"><i class="fa fa-check"></i><b>6.3.1</b> Construyendo Variables en R</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chapter_4.html"><a href="chapter_4.html#reglas-para-nombrar-variables"><i class="fa fa-check"></i><b>6.3.2</b> Reglas para Nombrar Variables</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chapter_4.html"><a href="chapter_4.html#convenciones-informales-para-nombrar-variables"><i class="fa fa-check"></i><b>6.3.3</b> Convenciones Informales para Nombrar Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chapter_4.html"><a href="chapter_4.html#errores-de-escritura-o-typos-en-r"><i class="fa fa-check"></i><b>6.4</b> Errores de Escritura o <em>typos</em> en R</a></li>
+<li class="chapter" data-level="6.5" data-path="chapter_4.html"><a href="chapter_4.html#funciones-en-r"><i class="fa fa-check"></i><b>6.5</b> Funciones en R</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="chapter_4.html"><a href="chapter_4.html#argumentos-sus-nombres-y-valores-por-defecto-en-las-funciones"><i class="fa fa-check"></i><b>6.5.1</b> Argumentos, sus Nombres y Valores por Defecto en las Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-números-o-vectores-en-variables"><i class="fa fa-check"></i><b>6.6</b> Almacenando Números (o Vectores) en Variables</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="chapter_4.html"><a href="chapter_4.html#modificando-los-valores-de-un-vector"><i class="fa fa-check"></i><b>6.6.1</b> Modificando los Valores de un Vector</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-texto-en-variables"><i class="fa fa-check"></i><b>6.7</b> Almacenando Texto en Variables</a></li>
+<li class="chapter" data-level="6.8" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-valores-lógicos-en-variables"><i class="fa fa-check"></i><b>6.8</b> Almacenando Valores Lógicos en Variables</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="chapter_4.html"><a href="chapter_4.html#evaluando-verdades-matemáticas"><i class="fa fa-check"></i><b>6.8.1</b> Evaluando Verdades Matemáticas</a></li>
+<li class="chapter" data-level="6.8.2" data-path="chapter_4.html"><a href="chapter_4.html#más-operadores-lógicos"><i class="fa fa-check"></i><b>6.8.2</b> Más Operadores Lógicos</a></li>
+<li class="chapter" data-level="6.8.3" data-path="chapter_4.html"><a href="chapter_4.html#almacenando-datos-lógicos-en-variables-al-fin"><i class="fa fa-check"></i><b>6.8.3</b> Almacenando Datos Lógicos en Variables (Al fin!)</a></li>
+<li class="chapter" data-level="6.8.4" data-path="chapter_4.html"><a href="chapter_4.html#vectores-lógicos"><i class="fa fa-check"></i><b>6.8.4</b> Vectores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="chapter_4.html"><a href="chapter_4.html#resumen-y-ejercicios-2"><i class="fa fa-check"></i><b>6.9</b> Resumen y Ejercicios</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="chapter_4.html"><a href="chapter_4.html#ejercicios-2"><i class="fa fa-check"></i><b>6.9.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="instalando-librerías-en-r.html"><a href="instalando-librerías-en-r.html"><i class="fa fa-check"></i><b>7</b> Instalando Librerías en R</a></li>
+<li class="chapter" data-level="8" data-path="glosario.html"><a href="glosario.html"><i class="fa fa-check"></i><b>8</b> Glosario</a></li>
+<li class="chapter" data-level="" data-path="anexo_1.html"><a href="anexo_1.html"><i class="fa fa-check"></i>Anexo 1: Más Comandos Básicos</a></li>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html"><i class="fa fa-check"></i>Anexo 2: Respuesta a Ejercicios</a>
+<ul>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html#respuestas-de-ejercicios-de-la-subsección-2.7.1"><i class="fa fa-check"></i>Respuestas de Ejercicios de la Subsección 2.7.1</a></li>
+<li class="chapter" data-level="" data-path="anexo_2.html"><a href="anexo_2.html#anexo_3_7_1"><i class="fa fa-check"></i>Respuestas de Ejercicios de la Subsección 3.7.1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-el-autor-del-curso.html"><a href="sobre-el-autor-del-curso.html"><i class="fa fa-check"></i>Sobre el Autor del Curso</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a los Modelos Mixtos en Psicologia</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter_3" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> ¿Qué es R? Instalando R y RStudio<a href="chapter_3.html#chapter_3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="definiendo-r" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Definiendo R<a href="chapter_3.html#definiendo-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R es un lenguaje de programación que fue lanzado de manera estable el año 2000 por Robert Gentleman y Ross Ihaka (1993) del Departamento de Estadística de la Universidad de Auckland (Nueva Zelanda). Para esto, ellos se basaron en el lenguaje de programación S desarrollado en los laboratorios Bell de Estados Unidos en 1970. R fue diseñado con el fin exclusivo de construir un lenguaje para el análisis estadístico. De acuerdo al <em>TIOBE programming community index</em> (marzo de 2021), R ocupa el puesto 11 entre los lenguajes de programación más populares, toda una sorpresa para una herramienta que fue pensada solo para propósitos estadísticos.</p>
+<p>R es un lenguaje de programación orientado a objetos. ¿Pero qué quiere decir esto? Para mantener las cosas simples, diremos que este tipo de lenguajes permite definir tipos de datos y, al mismo tiempo, definir operaciones que se aplican a estos mismos tipos de datos. Por ejemplo, desde un punto de vista estadístico, podemos definir un objeto como una variable <code>x = 16</code> y cada vez que ejecutemos <code>x</code>, R imprimirá <code>16</code>. También podremos ejecutar algunas funciones sobre la variable o el objeto que acabamos de crear. Por ejemplo, si escribimos en R <code>sqrt(x)</code>, nos devolverá la raíz cuadrada de 16 que es <code>4</code>, y cuyo valor está almacenado en <code>x</code>. <code>sqrt()</code> es una función base (es decir, que ya existe) en R que entrega la raíz cuadrada de un valor o variable que esté dentro del paréntesis. De este modo, no tenemos que estar escribiendo de maneras engorrosas la raíz cuadrada y podemos aplicar estas funciones en las variables ya definidas. ¡R lo hace mas fácil para nosotros!</p>
+<p>Habiendo definido brevemente R, ahora nos enfocaremos en instalar R en nuestro computador. Luego de esto, pasaremos rápidamente a la descarga de RStudio, el cual es el entorno de desarrollo integrado más popular y casi por definición para interactuar con R y el que usaremos a lo largo de este curso. Nos detendremos un poco en describir RStudio, para describir sus principales paneles y diálogos. Por ahora vamos a instalar R.</p>
+</div>
+<div id="instalando-r" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Instalando R<a href="chapter_3.html#instalando-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para esto debemos ir a la siguiente website:</p>
+<div class="FOO">
+<p>
+<a href="http://cran.r-project.org/" target="_blank">Sitio web de
+R</a>
+</p>
+</div>
+<p align="center">
+  <img width="700" height="350" src="images/r_cran.png">
+</p>
+<p align="center">
+Figura 3. Página web de inicio de R. 
+</p>
+<p>En la parte superior, aparecerá un cuadro con tres opciones diferentes de descarga según el sistema operativo que use tu computador (i.e., Windows, OS X o Linux). Dale clic a la opción que corresponda a tu caso.</p>
+<div id="r-para-windows" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> R para Windows<a href="chapter_3.html#r-para-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A pesar de que la página de R no es particularmente “estética”, puedes fácilmente visualizar y clicar la opción de descarga para Windows. Una vez hayas seleccionado este enlace, dale clic a “install R for the first time”. Esto te llevará finalmente a la página de descarga donde tienes que clicar el enlace que dice “Download R 4.0.5 for Windows (85 megabytes, 32/64 bit)” (o cual sea la versión que veas al momento de descargar R). Esto iniciará la descarga de un archivo, el cual tardará unos pocos minutos dependiendo de tu conexión a internet y otras variables. Ya descargado, haz doble clic para instalarlo y responde apropiadamente las preguntas que haga Windows para su instalación y ubicación. Seguir las opciones por defecto por lo general es una buena idea. Ahora ya teniendo instalado R en tu computador, puedes ir al menú de inicio y abrirlo.</p>
+</div>
+<div id="r-para-mac" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> R para Mac<a href="chapter_3.html#r-para-mac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si tienes un ordenador Mac, dale clic al enlace correspondiente a Mac OS X. Esto te llevará a una página donde aparece la opción “R for Mac OS X”. Bajo el subtítulo “Latest release:”, encontrarás un enlace con la versión que necesitas (al momento de escribir este texto, yo vi el siguiente link: “R-4.0.5.pkg (notarized and signed)”). Como resultado tu empezarás a descargar el instalador que en mi caso decía “R-4.0.5.pkg”. Sigue el proceso normal de instalación de Mac para instalar R.</p>
+</div>
+<div id="r-para-linux" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> R para Linux<a href="chapter_3.html#r-para-linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para este caso, debo decir que nunca he instalado un programa en Linux, por lo que no soy de mucha ayuda aquí (sorry guys!) y voy a dar una explicación que he encontrado en la web. Deberías darle clic en el enlace “Download R for Linux”. En esa página, tu encontrarás directorios para Debian, Red Hat, Suse y Ubuntu cada una con sus respectivas instrucciones. Una vez que tengas instalado R, puedes correrlo desde la línea de comando tan solo escribiendo <code>R</code>.</p>
+</div>
+</div>
+<div id="instalando-rstudio" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Instalando RStudio<a href="chapter_3.html#instalando-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ahora que ya tenemos R en nuestro computador es bueno recordar que R es un lenguaje de programación. Digo esto porque nosotros podemos interactuar con R de diferentes maneras. Una forma es interactuar con R a través de la consola que está instalada en nuestros laptops. Y para serles brutamente honesto, esta no es la manera más eficiente de hacerlo. En cambio, lo que les propongo es usar un <em>software</em> libre para dicho propósito. Es aquí cuando empezamos a hablar de RStudio, el cual es un programa diseñado para hacer nuestras vidas más fáciles cuando interactuemos con R. Si bien hay diferentes herramientas para comunicarse con R, RStudio es por masacre la manera más popular de hacerlo y que, prácticamente, se ha convertido en LA forma de hacer análisis de datos. RStudio es lo que se conoce como un entorno de desarrollo integrado (<em>Integrated Development Environment</em>, IDE). Para seguir con las explicaciones simples y que nos permitan seguir avanzando sin mayores problemas con nuestro curso, diremos que un IDE es un software especializado que ha sido pensado para proporcionar las herramientas necesarias para un desarrollo ágil y que cuenta con elementos como un editor, una consola, funciones de autocompletado y resaltado de sintaxis, entre otras funciones. Si bien esto aun puede parecer algo complicado, no se preocupen, en la medida que vayamos avanzando en este curso iremos ilustrando los puntos de la definición. Por ahora lo que haremos es descargar RStudio en nuestro computador. Para esto, utilizaremos el siguiente enlace:</p>
+<div class="FOO">
+<p>
+<a href="https://www.rstudio.com/products/rstudio/download/#download"
+target="_blank">Sitio web de RStudio</a>
+</p>
+</div>
+<p align="center">
+  <img width="450" height="300" src="images/r_studio_webpage.png">
+</p>
+<p align="center">
+Figura 4. Página web de inicio de RStudio. 
+</p>
+<p>Si bajas un poco a lo largo de la página web de RStudio, te encontrarás con las opciones que aparecen en la figura 5. En este caso, aparece la opción de descarga de RStudio para el sistema operativo de Mac (en el cuadro azul a la izquierda de la imagen <em>Download RStudio for Mac</em>) porque la página web de RStudio genera automáticamente el link que cada usuario necesita. Si tienes <em>Windows</em>, aparecerá un link para tu sistema operativo.</p>
+<p align="center">
+  <img width="450" height="300" src="images/r_studio_download.png">
+</p>
+<p align="center">
+Figura 5. Links de descarga de RStudio para tu sistema operativo. 
+</p>
+</div>
+<div id="capiulo3_4" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Explorando RStudio<a href="chapter_3.html#capiulo3_4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Haciendo un breve resumen de lo que hemos hecho en este capítulo, acabamos de descargar dos cosas: el lenguaje de programación R y RStudio. Recalco esto porque algunos usuarios nóveles tienden a descargar solo uno de ellos y no lo dos. Para este curso es necesario tener ambos.</p>
+<p>OK, una vez descargado RStudio en nuestro computador, procederemos a seleccionarlo y abrirlo. Una vez abierto, deberían ver una pantalla similar a la que se muestra en la figura 6. En ella, aprovecharemos de describir los principales 4 paneles que allí se observan (en algunas ocasiones es necesario hacer aparecer el panel [1] <em>script</em>, para esto dar clic en la parte superior izquierda en <em>File</em> →<em>New file</em> → <em>RScript</em>).</p>
+<p align="center">
+  <img width="750" height="380" src="images/rstudio_panels.png">
+</p>
+<p align="center">
+Figura 6. Paneles principales de RStudio. 
+</p>
+<p>En la figura 6, hay cuatros rectángulos de diferentes colores, los cuales describen los siguientes paneles:</p>
+<ul>
+<li>Panel 1: Panel de Código (<em>Script</em>)</li>
+<li>Panel 2: Panel de Consola (<em>Console</em>)</li>
+<li>Panel 3: Panel de Entorno (<em>Environment</em>)</li>
+<li>Panel 4: Panel de Archivos (<em>Files</em>)</li>
+</ul>
+<p>A continuación, describiremos de forma muy general estos paneles y en la medida que vayamos avanzando en el curso, procederemos a profundizar más en sus opciones y funciones. El panel de código [1] es uno de los elementos fundamentales de RStudio, ya que en él podemos escribir extensas líneas de comando (en caso de que lo necesitemos), guardarlas y ejecutarlas. Además, tiene herramientas que destaca diferentes porciones de código según la función que cumpla y tiene también funciones de autocompletado. Probablemente, este es el panel que más utilizaremos en la medida que vayamos avanzando con el curso y con las diferentes necesidades de análisis de datos que tengamos.</p>
+<p>En la consola [2] podemos interactuar o escribir directamente instrucciones para comunicarnos con R, y éste nos entrega de forma inmediata las salidas o resultados del código. También imprime las instrucciones ejecutadas en el panel de <em>script</em>.</p>
+<p>En el panel [3] o de entorno existen un número de pestañas con diferentes funcionalidades. Por ahora, diremos que en este panel podemos encontrar las variables creadas en algunos de los otros dos paneles descritos o revisar el histórico de instrucciones ejecutadas en R. El panel de archivos de R [4], básicamente funciona como un explorador de carpetas, de este modo podemos crear, modificar, eliminar capetas o archivos sin la necesidad de salir de R.</p>
+</div>
+<div id="la-consola-y-el-panel-de-código-script" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> La Consola y el Panel de Código (<em>script</em>)<a href="chapter_3.html#la-consola-y-el-panel-de-código-script" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ilustraremos brevemente el uso del panel de código o <em>script</em> y la consola de R. Primero partiremos con la consola, ya que es más intuitivo e interactivo su uso. En la figura 7, hay una captura de una operación simple en la consola: aparece la instrucción o <em>input</em> <code>2 + 12</code>, a la cual simplemente le damos <em>enter</em>, y obtenemos el resultado <code>14</code>.</p>
+<p align="center">
+  <img width="550" height="100" src="images/ejemplo_consola.png">
+</p>
+<p align="center">
+Figura 7. Instrucciones en la consola de R. 
+</p>
+<p>Una de las ventajas de usar la consola es que ingresamos un <em>input</em> y de forma instantánea obtenemos un <em>output</em> en la consola. Este modo de trabajo se denomina <em>programación interactiva</em> y es una forma de programación que hace que el usuario pueda observar los resultados del código que va desarrollando en la medida que lo va creando. En términos de aprendizaje, es bastante útil porque el usuario produce resultados en R, percibe cierto control del proceso de programación y se genera un ciclo de refuerzo continuo que podría incrementar su motivación y subir su percepción de autoeficacia (al menos cuando las instrucciones funcionan).</p>
+<p>Sin embargo, si bien la consola es un buen lugar para empezar nuestra aventura a través de la programación por los recovecos de R, al poco andar no será la forma más eficiente de interactuar con R. Por ejemplo, si quisiéramos editar más de dos líneas de código en la consola, el proceso sería algo más engorroso. Para hacer esto (y mucho más), tenemos a nuestra disposición el panel de código. En la figura 8 abajo, hay un ejemplo con tres líneas de código. En la línea 1, recordando lo ya dicho en el capítulo 2, el signo gato o “hashgtag” marca el inicio de los comentarios que queramos escribir para describir lo que hace el código. Pero de forma más importante, todo lo que esté escrito en la parte derecha del <code>#</code> será ignorado por R y no será ejecutado, por lo que la línea 1 del ejemplo no es ejecutada. En la línea 2, hemos creado la variable <code>r</code> (ver <a href="chapter_4.html#chapter_4.3.1">Capítulo 4</a> subsección 4.3 para más detalles) y en la línea 3 hemos dividido la variable <code>r</code> por 2.</p>
+<p align="center">
+  <img width="700" height="400" src="images/ejemplo_script_1.png">
+</p>
+<p align="center">
+Figura 8. Ejemplo de instrucciones en el panel de código de R. 
+</p>
+<p>Un elemento importante del ejemplo de la figura 8 es que la línea 2 ha sido seleccionada (marcando el texto deseado como en el ejemplo, o simplemente dejando el cursor al inicio de la línea de código que se desea ejecutar), y posteriormente, ejecutada. La ejecución de una línea de código se puede hacer al menos de dos maneras: <code>Ctrl + Enter</code> (en Windows), <code>Cmd + Enter</code> (en Mac) o dando clic en “Run”→ “Run Selected line(s)”. El resultado se observa en la parte inferior, en el panel de la consola “r &lt;- 5 * 4 # Creacion de la variable ‘r’”. Lo que es importante notar de este ejemplo es que es necesario seleccionar la línea o líneas de código que se desean correr en R. Arriba solo se corrió la línea 2. Ahora bien, si queremos correr la línea 2 y línea 3 del panel de código, debemos seleccionar ambas líneas y luego ejecutarlas, como lo muestra la figura 9.</p>
+<p align="center">
+  <img width="700" height="400" src="images/ejemplo_script_2.png">
+</p>
+<p align="center">
+Figura 9. Segundo ejemplo de instrucciones en el panel de código de R. 
+</p>
+</div>
+<div id="presentando-r-notebook" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Presentando R Notebook<a href="chapter_3.html#presentando-r-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ahora me gustaría hablar de otra forma de realizar análisis de datos y que ha ganado mucha fuerza durante el último tiempo, más allá del uso de la consola o del <em>script</em>. Esta forma de interactuar con R se llama <em>R Notebook</em>. R Notebook es un documento de <em>R Markdown</em> (es decir, un tipo de formato de documentos dinámicos en R), en el cual puedes digitar texto normal e insertar porciones de código que pueden ser ejecutados independiente e interactivamente, con una salida que se observa inmediatamente debajo del código ejecutado o entrada. En la Figura 10 aparece un ejemplo de R Markdown.</p>
+<p align="center">
+  <img width="950" height="600" src="images/r_notebook.png">
+</p>
+<p align="center">
+Figura 10. Ejemplo de un R Notebook. 
+</p>
+<p>Hay dos maneras de crear un R Notebook. La forma más sencilla de crear uno es ir y dar clic en <em>File</em> →<em>New file</em> → <em>R Notebook</em> (El producto de esta acción se muestra en la Figura 10); la segunda es algo un “poco” más elaborada, es decir, usando una salida de notebook de html. En las líneas 1 a 4 de la figura 9, muestra un ejemplo de cómo generar un notebook con un tipo de escritura en html, al igual que el código que aparece abajo (nótese que éste debe estar escrito al inicio del <em>script</em>):</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="chapter_3.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb63-2"><a href="chapter_3.html#cb63-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;R Notebook&quot;</span></span>
+<span id="cb63-3"><a href="chapter_3.html#cb63-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_notebook</span>
+<span id="cb63-4"><a href="chapter_3.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div id="insertando-y-ejecutando-porciones-de-código" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Insertando y Ejecutando Porciones de Código<a href="chapter_3.html#insertando-y-ejecutando-porciones-de-código" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las porciones de código pueden ser insertadas usando los atajos del teclado según el sistema operativo que tengas. Si estas usando macOS, debes usar <code>Cmd + Option + I</code>; y si estas usando Windows, utiliza <code>Ctrl + Alt + I</code>. Asimismo, también puedes usar la opción <code>Insert a new code chunk</code> para agregar pedazos de código en el R Markdown. La figura 11 muestra un ejemplo de un trozo o pedazo de código desde la línea 9 a la 11, que al ser ejecutado da como resultado <code>100</code>:</p>
+<p align="center">
+  <img width="1038" height="366" src="images/r_chunk.png">
+</p>
+<p align="center">
+Figura 11. R Chunk o pedazo de código en R. 
+</p>
+<p>Como se puede apreciar en la figura de arriba, en la línea 9 se define el inicio del trozo de código específico (<code>```{r}</code>); en la línea 10, se encuentra la línea de comando que deseamos ejecutar al interior, es decir, <code>5 * 20</code>; luego en la línea 11, aparece 3 “<em>backticks</em>” seguidos para indicar que allí finaliza el trozo de código. Todo lo que esté más allá de estas líneas no será considerado como parte de ese código particular. Para ejecutar todo lo que está dentro del pedazo de código de R, tenemos que darle clic a la flecha verde al lado derecho de cada <em>chunk</em> de código en gris. En la figura 11, aparece una pequeña ventana que dice <code>Run Current Chunk</code>. Alternativamente, podemos usar el siguiente atajo con el teclado en Windows <code>Ctrl + Shift * Enter</code> o el siguiente <code>Cmd + Shift + Enter</code> si estamos usando macOS. Finalmente, abajo aparece el <em>output</em> de nuestro comando: <code>[1] 100</code>.</p>
+<p>Cada vez que usemos R Notebooks, es bueno guardar los cambios al igual como si estuviéramos trabajando con un archivo Word común y corriente. De otro modo, todo nuestro progreso no será salvado.</p>
+<p>Se recomienda que cuando el usuario adquiera más experiencia en el manejo de RStudio, pueda trabajar principalmente con los R Notebooks y/o usar la consola de R para probar ciertas instrucciones simples si es que lo desea.</p>
+</div>
+</div>
+<div id="resumen-y-ejercicios-1" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Resumen y Ejercicios<a href="chapter_3.html#resumen-y-ejercicios-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En el presente capítulo revisamos cómo instalar el programa de programación R y RStudio. Además, exploramos brevemente RStudio y sus principales paneles, describiendo algunas funcionalidades de la consola, el panel de <em>script</em>, y finalizando con una somera descripción de R Notebook.</p>
+<div id="ejercicios-1" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Ejercicios<a href="chapter_3.html#ejercicios-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Cree un nuevo R Notebook en RStudio y guarde dicho archivo con el nombre: “ejercicio_1”.</li>
+<li>Borre uno de los guiones en la línea 4 del R Notebook. ¿Qué es lo que sucede?</li>
+<li>Elimine todo el texto que aparece de la línea 14 a la línea 18.</li>
+<li>Ejecute el trozo de código que va desde la línea 10 a la 12. ¿Qué es lo que sucede?</li>
+<li>Inserte un trozo de código a partir de la línea 14.</li>
+<li>En la línea 15 escriba la siguiente operación: <code>(23*7)/ 2.5</code> ¿Cuál es el resultado?</li>
+</ol>
+<p><strong>Las respuestas a todos los ejercicios se encuentran en el <a href="anexo_2.html#anexo_3_7_1">Anexo 2</a>.</strong></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regresion-lineal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modelos-mixtos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/edit/main/03-instalando_r.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/danielivanperez/curso_modelos_mixtos/blob/main/03-instalando_r.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
