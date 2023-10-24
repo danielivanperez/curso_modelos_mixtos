@@ -3,5 +3,5 @@ por-qué-programar-en-r
 estructura-del-presente-curso
 obstáculos-en-el-aprendizaje-de-r
 consideraciones-finales
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
+regresion-lineal
+modelos-mixtos
