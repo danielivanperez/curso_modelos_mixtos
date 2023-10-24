@@ -3,7 +3,7 @@ por-qué-programar-en-r
 estructura-del-presente-curso
 obstáculos-en-el-aprendizaje-de-r
 consideraciones-finales
-r-en-acción-analizando-un-estudio-empírico-real
+chapter_2
 cargando-una-base-de-datos-desde-la-web
 seleccionando-columnas-en-una-base-de-datos
 seleccionando-filas-en-una-base-de-datos
