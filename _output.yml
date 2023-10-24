@@ -3,6 +3,6 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Curso Modelos Mixtos</a></li>
+        <li><a href="./">Introducción a los Modelos Mixtos en Psicología</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
