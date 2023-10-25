@@ -1,6 +1,6 @@
 --- 
 title: "Introducción a los Modelos Mixtos en Psicologia"
-author: "Daniel Perez Zapata, PhD"
+author: "[Daniel Perez Zapata, PhD](#anexo_3)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
